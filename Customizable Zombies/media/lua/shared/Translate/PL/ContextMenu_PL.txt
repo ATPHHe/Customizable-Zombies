@@ -1,0 +1,47 @@
+ContextMenu_PL = {
+    
+    ---------- Polish - PL ----------
+    
+    ----- Coding/Programming Strings -----
+    ContextMenu_Customizablezambis_true = "prawdziwe",
+    ContextMenu_Customizablezambis_false = "falszywy",
+    
+    ----- Zombie Settings
+    ContextMenu_CustomizableZombies_HPMultiplier = "Mnoznik Zdrowia",
+    
+    
+    ----- FakeDead -----
+    ContextMenu_Customizablezambis_1_Title = "% szans na odrodzenie w Falszywym Martwym stanie",
+    ContextMenu_Customizablezambis_1_Tooltip = "% Szans, ze zambi znajdzie sie w falszywym stanie martwym.",
+    
+    
+    ----- Crawler -----
+    ContextMenu_Customizablezambis_2_Title = "% Czolganie sie Zambi",
+    ContextMenu_Customizablezambis_2_Tooltip = "% Szans, ze zambi bedzie czolganiem.",
+    
+    
+    ----- Shambler -----
+    ContextMenu_Customizablezambis_3_Title = "% Shamblerów",
+    ContextMenu_Customizablezambis_3_Tooltip = "Procentowa szansa, ze ??zambi stanie sie Shamblerem.",
+    
+    
+    ----- FastShambler -----
+    ContextMenu_Customizablezambis_4_Title = "% Szybkich Shamblerów",
+    ContextMenu_Customizablezambis_4_Tooltip = "Procentowa szansa, ze ??zambi bedzie Szybkim Shamblerem.",
+    
+    
+    ----- Sprinter -----
+    ContextMenu_Customizablezambis_5_Title = "% Sprinterzy",
+    ContextMenu_Customizablezambis_5_Tooltip = "% Szans, ze zambi zostanie Sprinter.",
+    
+    
+    ----- Preset -----
+    ContextMenu_Customizablezambis_6_Title = "Zaprogramowane: ",
+    ContextMenu_Customizablezambis_6_Tooltip = "Dla wygody stworzylem tutaj ustawienia wstepne.",
+    
+    
+    ----- README Message -----
+    ContextMenu_Customizablezambis_ReadmeMessage = "PRZECZYTAJ: <br>Nacisnij „ZASTOSUJ”, aby upewnic sie, ze procenty równowaza sie tak, jak chcesz. <br>Czolganie sie zambi, Shamblerów, Szybkich Shamblerów i Sprinter musza sie laczyc w 100%. <br><br>(Nie ma to wplywu na falszywe bycie martwym%)",
+    
+    
+}

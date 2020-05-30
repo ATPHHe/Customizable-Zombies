@@ -1,0 +1,47 @@
+ContextMenu_HU = {
+    
+    ---------- Hungarian - HU ----------
+    
+    ----- Coding/Programming Strings -----
+    ContextMenu_CustomizableZombies_true = "true",
+    ContextMenu_CustomizableZombies_false = "hamis",
+    
+    ----- Zombie Settings
+    ContextMenu_CustomizableZombies_HPMultiplier = "Egészségügyi Szorzó",
+    
+    
+    ----- FakeDead -----
+    ContextMenu_CustomizableZombies_1_Title = "% esély az ívásra hamis halott állapotban",
+    ContextMenu_CustomizableZombies_1_Tooltip = "Annak esélye, hogy egy zombi hamis halott állapotban lesz.",
+    
+    
+    ----- Crawler -----
+    ContextMenu_CustomizableZombies_2_Title = "A bejárók% -a",
+    ContextMenu_CustomizableZombies_2_Tooltip = "Az a százalékos esély, hogy egy zombi bejáróvá válik.",
+    
+    
+    ----- Shambler -----
+    ContextMenu_CustomizableZombies_3_Title = "A Shamblerek% -a",
+    ContextMenu_CustomizableZombies_3_Tooltip = "Az a százalékos esély, hogy egy zombi Shamblerré válik.",
+    
+    
+    ----- FastShambler -----
+    ContextMenu_CustomizableZombies_4_Title = "% a gyors Shamblerekbol",
+    ContextMenu_CustomizableZombies_4_Tooltip = "Az a százalékos esély, hogy egy zombi Gyors Shamblerré válik.",
+    
+    
+    ----- Sprinter -----
+    ContextMenu_CustomizableZombies_5_Title = "A Sprinters -a",
+    ContextMenu_CustomizableZombies_5_Tooltip = "Az a százalékos esély, hogy egy zombi Sprinter válik.",
+    
+    
+    ----- Preset -----
+    ContextMenu_CustomizableZombies_6_Title = "Elore: ",
+    ContextMenu_CustomizableZombies_6_Tooltip = "Preferenciákat készítettem itt a kényelem érdekében.",
+    
+    
+    ----- README Message -----
+    ContextMenu_CustomizableZombies_ReadmeMessage = "OLVASSA MEG: <br>Nyomja meg az 'Alkalmaz' gombot, hogy megbizonyosodjon arról, hogy a százalékos arány kiegyensúlyozza-e azt, ahogyan szeretné. <br>A Bejáróvá, a Shamblerré, a Gyors Shamblerré és a Sprinter százalékos arányának össze kell állnia, és teljes 100% -nak kell lennie. <br><br>(A hamis halott % -ot nem érinti)",
+    
+    
+}

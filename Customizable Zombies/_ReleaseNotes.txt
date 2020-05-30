@@ -1,0 +1,5 @@
+Customizable Zombies 2.3.1
+- Hotfix: Fixed translation for HP Multiplier.
+
+Customizable Zombies 2.3.0
+- Feature: You may now modify the health of zombies using the "$HPMultiplier$" setting in the Game "Options" inside the tab "CZombie".

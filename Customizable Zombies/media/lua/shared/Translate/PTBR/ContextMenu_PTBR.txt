@@ -1,0 +1,47 @@
+ContextMenu_PTBR = {
+    
+    ---------- Portuguese-Brazil - PT-BR PTBR ----------
+    
+    ----- Coding/Programming Strings -----
+    ContextMenu_CustomizableZombies_true = "verdade",
+    ContextMenu_CustomizableZombies_false = "falso",
+    
+    ----- Zombie Settings
+    ContextMenu_CustomizableZombies_HPMultiplier = "Multiplicador de Saúde",
+    
+    
+    ----- FakeDead -----
+    ContextMenu_CustomizableZombies_1_Title = "% de chance de aparecer em estado morto",
+    ContextMenu_CustomizableZombies_1_Tooltip = "A % de chance de um zumbi estar em um estado morto como falso.",
+    
+    
+    ----- Crawler -----
+    ContextMenu_CustomizableZombies_2_Title = "% de Rastreadores",
+    ContextMenu_CustomizableZombies_2_Tooltip = "A % de chance de um zumbi ser um rastreador.",
+    
+    
+    ----- Shambler -----
+    ContextMenu_CustomizableZombies_3_Title = "% de Caminhantes",
+    ContextMenu_CustomizableZombies_3_Tooltip = "A % de chance de um zumbi ser um caminhante.",
+    
+    
+    ----- FastShambler -----
+    ContextMenu_CustomizableZombies_4_Title = "% de Caminhantes Rápidos",
+    ContextMenu_CustomizableZombies_4_Tooltip = "A % de chance de um zumbi ser um caminhante rápido.",
+    
+    
+    ----- Sprinter -----
+    ContextMenu_CustomizableZombies_5_Title = "% de Sprinters",
+    ContextMenu_CustomizableZombies_5_Tooltip = "A % de chance de um zumbi ser um sprinter.",
+    
+    
+    ----- Preset -----
+    ContextMenu_CustomizableZombies_6_Title = "Predefinição:",
+    ContextMenu_CustomizableZombies_6_Tooltip = "Criei predefinições aqui por conveniência.",
+    
+    
+    ----- README Message -----
+    ContextMenu_CustomizableZombies_ReadmeMessage = "LEIA-ME: <br>Pressione 'APLIQUE' para garantir que as porcentagens sejam equilibradas como você deseja. <br>As porcentagens de Rastreadores, Caminhantes, Caminhantes Rápidos e Sprinter devem combinar e ser iguais a 100% do total. <br><br>(% de mortos por falsos não é afetado)",
+    
+    
+}

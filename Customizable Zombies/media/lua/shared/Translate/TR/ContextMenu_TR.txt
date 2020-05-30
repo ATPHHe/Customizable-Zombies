@@ -1,0 +1,47 @@
+ContextMenu_TR = {
+    
+    ---------- Turkish - TR ----------
+    
+    ----- Coding/Programming Strings -----
+    ContextMenu_CustomizableZombies_true = "dogru",
+    ContextMenu_CustomizableZombies_false = "yanlis",
+    
+    ----- Zombie Settings
+    ContextMenu_CustomizableZombies_HPMultiplier = "Saglik Çarpani",
+    
+    
+    ----- FakeDead -----
+    ContextMenu_CustomizableZombies_1_Title = "Sahte Ölü durumda ortaya çikma sansi% 'si",
+    ContextMenu_CustomizableZombies_1_Tooltip = "Bir zombilerin Sahte Ölü durumunda olma sansi.",
+    
+    
+    ----- Crawler -----
+    ContextMenu_CustomizableZombies_2_Title = "Paletli Yüzdesi",
+    ContextMenu_CustomizableZombies_2_Tooltip = "Bir zombi bir Paletli olma sansi.",
+    
+    
+    ----- Shambler -----
+    ContextMenu_CustomizableZombies_3_Title = "Shamblers'in yüzdesi",
+    ContextMenu_CustomizableZombies_3_Tooltip = "Bir zombi Shambler olma sansi.",
+    
+    
+    ----- FastShambler -----
+    ContextMenu_CustomizableZombies_4_Title = "Hizli Shambers yüzdesi",
+    ContextMenu_CustomizableZombies_4_Tooltip = "Bir zombi Hizli Shambler olma sansi.",
+    
+    
+    ----- Sprinter -----
+    ContextMenu_CustomizableZombies_5_Title = "Sprinterlerin Yüzdesi",
+    ContextMenu_CustomizableZombies_5_Tooltip = "Bir zombi bir Sprinter olma sansi.",
+    
+    
+    ----- Preset -----
+    ContextMenu_CustomizableZombies_6_Title = "Ön Ayar: ",
+    ContextMenu_CustomizableZombies_6_Tooltip = "Kolaylik saglamak için burada hazir ayarlar olusturdum.",
+    
+    
+    ----- README Message -----
+    ContextMenu_CustomizableZombies_ReadmeMessage = "BENIOKU: <br>Yüzdelerin nasil olmasini istediginizden emin olmak için 'UYGULA'ya basin. <br>Crawler, Shambler, Fast Shamber ve Sprinter yüzdeleri toplam% 100'e esit olmali. <br><br>(Sahte Ölü% etkilenmez)",
+    
+    
+}

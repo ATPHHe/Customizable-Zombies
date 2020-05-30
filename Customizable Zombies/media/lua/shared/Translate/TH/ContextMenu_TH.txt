@@ -1,0 +1,47 @@
+ContextMenu_TH = {
+    
+    ---------- Thai - TH ----------
+    
+    ----- Coding/Programming Strings -----
+    ContextMenu_CustomizableZombies_true = "จริง",
+    ContextMenu_CustomizableZombies_false = "เท็จ",
+    
+    ----- Zombie Settings
+    ContextMenu_CustomizableZombies_HPMultiplier = "ตัวคูณสุขภาพ",
+    
+    
+    ----- FakeDead -----
+    ContextMenu_CustomizableZombies_1_Title = "โอกาสที่จะถูกปลอมตาย",
+    ContextMenu_CustomizableZombies_1_Tooltip = "โอกาส% ที่ซอมบี้จะอยู่ในสภาพที่เป็นของปลอม",
+    
+    
+    ----- Crawler -----
+    ContextMenu_CustomizableZombies_2_Title = "% ของโปรแกรมรวบรวมข้อมูล",
+    ContextMenu_CustomizableZombies_2_Tooltip = "โอกาส% ที่ซอมบี้จะเป็นผู้รวบรวมข้อมูล",
+    
+    
+    ----- Shambler -----
+    ContextMenu_CustomizableZombies_3_Title = "% ของผู้เดิน",
+    ContextMenu_CustomizableZombies_3_Tooltip = "โอกาส% ที่ซอมบี้จะเป็นวอล์คเกอร์",
+    
+    
+    ----- FastShambler -----
+    ContextMenu_CustomizableZombies_4_Title = "% ของผู้เดินเร็ว",
+    ContextMenu_CustomizableZombies_4_Tooltip = "% โอกาสที่ซอมบี้จะเดินเร็ว",
+    
+    
+    ----- Sprinter -----
+    ContextMenu_CustomizableZombies_5_Title = "% ผู้วิ่งแข่ง",
+    ContextMenu_CustomizableZombies_5_Tooltip = "โอกาสที่ซอมบี้จะเป็นผู้วิ่งแข่ง",
+    
+    
+    ----- Preset -----
+    ContextMenu_CustomizableZombies_6_Title = "ตั้งไว้ล่วงหน้า: ",
+    ContextMenu_CustomizableZombies_6_Tooltip = "ฉันสร้างสถานีล่วงหน้าที่นี่เพื่อความมั่นใจ",
+    
+    
+    ----- README Message -----
+    ContextMenu_CustomizableZombies_ReadmeMessage = "อ่านนะ: <br> กด 'นำไปใช้' เพื่อให้แน่ใจว่าเปอร์เซ็นต์นั้นสมดุลกับวิธีที่คุณต้องการ <br> โปรแกรมรวบรวมข้อมูลร้อยละเครื่องมือจัดรูปแบบช่องทางเดินเร็วและอุปกรณ์วิ่งแข่งจะต้องรวมกันและรวมเป็น 100% <br> <br> (ของปลอม,% ตายแล้ว, ไม่ได้รับผลกระทบ)",
+    
+    
+}

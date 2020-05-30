@@ -1,0 +1,47 @@
+ContextMenu_IT = {
+    
+    ---------- Italian - IT ----------
+    
+    ----- Coding/Programming Strings -----
+    ContextMenu_CustomizableZombies_true = "vero",
+    ContextMenu_CustomizableZombies_false = "falso",
+    
+    ----- Zombie Settings
+    ContextMenu_CustomizableZombies_HPMultiplier = "Moltiplicatore di Salute",
+    
+    
+    ----- FakeDead -----
+    ContextMenu_CustomizableZombies_1_Title = "% di possibilità di produrre ??uno stato di Falso Morto",
+    ContextMenu_CustomizableZombies_1_Tooltip = "La probabilità% che uno zombi si trovi in ??uno stato di Falso Morto.",
+    
+    
+    ----- Crawler -----
+    ContextMenu_CustomizableZombies_2_Title = "% di Crawler di zombi",
+    ContextMenu_CustomizableZombies_2_Tooltip = "La probabilità% che uno zombi diventi un Crawler.",
+    
+    
+    ----- Shambler -----
+    ContextMenu_CustomizableZombies_3_Title = "% di Shamblers",
+    ContextMenu_CustomizableZombies_3_Tooltip = "La probabilità% che uno zombi diventi uno Shambler.
+    
+    
+    ----- FastShambler -----
+    ContextMenu_CustomizableZombies_4_Title = "% di Shamblers Veloci",
+    ContextMenu_CustomizableZombies_4_Tooltip = "La probabilità% che uno zombi diventi uno Shambler Veloce.",
+    
+    
+    ----- Sprinter -----
+    ContextMenu_CustomizableZombies_5_Title = "% di Velocisti",
+    ContextMenu_CustomizableZombies_5_Tooltip = "La probabilità% che uno zombi diventi un Velocista.",
+    
+    
+    ----- Preset -----
+    ContextMenu_CustomizableZombies_6_Title = "Preset: ",
+    ContextMenu_CustomizableZombies_6_Tooltip = "Ho creato dei preset qui per comodità.",
+    
+    
+    ----- README Message -----
+    ContextMenu_CustomizableZombies_ReadmeMessage = "LEGGIMI: <br>Premi 'APPLICA' per assicurarti che le percentuali si bilancino come vuoi. <br>Le percentuali di zombi Crawler, Shambler, Shamber Veloci e Velocista devono combinarsi e pari al 100% in totale. <br><br>(% Falso Morto non interessata)",
+    
+    
+}

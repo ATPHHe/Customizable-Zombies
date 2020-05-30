@@ -1,0 +1,47 @@
+ContextMenu_ES = {
+    
+    ---------- Español-Argentina - AR ----------
+    
+    ----- Coding/Programming Strings -----
+    ContextMenu_CustomizableZombies_true = "cierto",
+    ContextMenu_CustomizableZombies_false = "falso",
+    
+    ----- Zombie Settings
+    ContextMenu_CustomizableZombies_HPMultiplier = "Multiplicador de Salud",
+    
+    
+    ----- FakeDead -----
+    ContextMenu_CustomizableZombies_1_Title = "% de probabilidad de engendrar en estado Falso Muerto",
+    ContextMenu_CustomizableZombies_1_Tooltip = "El % de posibilidades de que un zombie esté en un estado Falso Muerto.",
+    
+    
+    ----- Crawler -----
+    ContextMenu_CustomizableZombies_2_Title = "% de zombis que se gatear",
+    ContextMenu_CustomizableZombies_2_Tooltip = "El % de posibilidades de que un zombie se gatear.",
+    
+    
+    ----- Shambler -----
+    ContextMenu_CustomizableZombies_3_Title = "% de Caminantes zombis",
+    ContextMenu_CustomizableZombies_3_Tooltip = "El % de posibilidades de que un zombie sea un Caminante.",
+    
+    
+    ----- FastShambler -----
+    ContextMenu_CustomizableZombies_4_Title = "% de Caminantes Rápidos",
+    ContextMenu_CustomizableZombies_4_Tooltip = "El % de posibilidades de que un zombie sea un Caminante Rápido.",
+    
+    
+    ----- Sprinter -----
+    ContextMenu_CustomizableZombies_5_Title = "% de Sprinters",
+    ContextMenu_CustomizableZombies_5_Tooltip = "El % de posibilidades de que un zombie sea un Sprinter.",
+    
+    
+    ----- Preset -----
+    ContextMenu_CustomizableZombies_6_Title = "Preestablecido: ",
+    ContextMenu_CustomizableZombies_6_Tooltip = "Creé presets aquí para mayor comodidad.",
+    
+    
+    ----- README Message -----
+    ContextMenu_CustomizableZombies_ReadmeMessage = "LÉAME: <br>Haga clic en 'APLICAR' para asegurarse de que los porcentajes se equilibren como lo desea. <br>Los porcentajes de zombie 'Zombis que se Gatear', 'Caminantes', 'Caminantes Rápidos' y 'Sprinter' deben combinarse e igualar el 100% del total. <br><br>(El % Falso Muerto no se ve afectado)",
+    
+    
+}

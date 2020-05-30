@@ -1,0 +1,47 @@
+ContextMenu_AF = {
+    
+    ---------- Afrikaans - AF ----------
+    
+    ----- Coding/Programming Strings -----
+    ContextMenu_CustomizableZombies_true = "waar",
+    ContextMenu_CustomizableZombies_false = "onwaar",
+    
+    ----- Zombie Settings
+    ContextMenu_CustomizableZombies_HPMultiplier = "Gesondheid Vermenigvuldiger",
+    
+    
+    ----- FakeDead -----
+    ContextMenu_CustomizableZombies_1_Title = "% kans om in Valse Dooie toestand te kuit",
+    ContextMenu_CustomizableZombies_1_Tooltip = "Die % kans dat 'n zombie in 'n Valse Dooie toestand sal wees.",
+    
+    
+    ----- Crawler -----
+    ContextMenu_CustomizableZombies_2_Title = "% van Zombie-Kruipers",
+    ContextMenu_CustomizableZombies_2_Tooltip = "Die % kans dat 'n zombie 'n Kruiper sal wees.",
+    
+    
+    ----- Shambler -----
+    ContextMenu_CustomizableZombies_3_Title = "% van Zombie Shambler",
+    ContextMenu_CustomizableZombies_3_Tooltip = "Die% kans dat 'n zombie 'n Shambler is.",
+    
+    
+    ----- FastShambler -----
+    ContextMenu_CustomizableZombies_4_Title = "% van die Vinnige Zombie Shamblers",
+    ContextMenu_CustomizableZombies_4_Tooltip = "Die% kans dat 'n zombie 'n Vinnige Shambler sal wees.",
+    
+    
+    ----- Sprinter -----
+    ContextMenu_CustomizableZombies_5_Title = "% van die Naellopers",
+    ContextMenu_CustomizableZombies_5_Tooltip = "Die% kans dat 'n zombie 'n Naelloper sal wees.",
+    
+    
+    ----- Preset -----
+    ContextMenu_CustomizableZombies_6_Title = "Voorafbepaalde: ",
+    ContextMenu_CustomizableZombies_6_Tooltip = "Ek het vooraf instellings hier gemaak vir gemak.",
+    
+    
+    ----- README Message -----
+    ContextMenu_CustomizableZombies_ReadmeMessage = "LEES MY: <br>Klik op 'TOEPASSEN' om seker te maak dat die persentasies balanseer soos u wil. <br>Die persentasie Zombie-Kruipers, Zombie Shambler, Vinnige Zombie Shamblers en Naelloper moet 'n totaal van 100% wees. <br><br>(Valse Dooie % word nie beïnvloed nie)",
+    
+    
+}

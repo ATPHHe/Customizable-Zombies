@@ -1,0 +1,47 @@
+ContextMenu_CH = {
+    
+    ---------- Chinese/Mandarin (Traditional) - CH ----------
+    
+    ----- Coding/Programming Strings -----
+    ContextMenu_CustomizableZombies_true = "真正",
+    ContextMenu_CustomizableZombies_false = "假",
+    
+    ----- Zombie Settings
+    ContextMenu_CustomizableZombies_HPMultiplier = "健康乘數",
+    
+    
+    ----- FakeDead -----
+    ContextMenu_CustomizableZombies_1_Title = "在假死狀態下產生的機率",
+    ContextMenu_CustomizableZombies_1_Tooltip = "殭屍處於假死狀態的機會百分比。",
+    
+    
+    ----- Crawler -----
+    ContextMenu_CustomizableZombies_2_Title = "殭屍爬蟲百分比",
+    ContextMenu_CustomizableZombies_2_Tooltip = "殭屍將成為爬蟲的機會百分比。",
+    
+    
+    ----- Shambler -----
+    ContextMenu_CustomizableZombies_3_Title = "殭屍步行者的百分比",
+    ContextMenu_CustomizableZombies_3_Tooltip = "殭屍成為沃克的機會百分比。",
+    
+    
+    ----- FastShambler -----
+    ContextMenu_CustomizableZombies_4_Title = "殭屍步行者的百分比",
+    ContextMenu_CustomizableZombies_4_Tooltip = "殭屍成為沃克的機會百分比。",
+    
+    
+    ----- Sprinter -----
+    ContextMenu_CustomizableZombies_5_Title = "殭屍短跑選手百分比",
+    ContextMenu_CustomizableZombies_5_Tooltip = "殭屍成為短跑選手的機會。",
+    
+    
+    ----- Preset -----
+    ContextMenu_CustomizableZombies_6_Title = "預設：",
+    ContextMenu_CustomizableZombies_6_Tooltip = "為了方便起見，我在這裡創建了預設。",
+    
+    
+    ----- README Message -----
+    ContextMenu_CustomizableZombies_ReadmeMessage = "自述文件: <br>自述文件：<br>單擊“應用”以確保百分比平衡您的期望。 <br>“抓取工具”，“助行器”，“快速助行器”和“短跑選手”的百分比必須相加並等於100％。 <br><br>（假死％不受影響）",
+    
+    
+}

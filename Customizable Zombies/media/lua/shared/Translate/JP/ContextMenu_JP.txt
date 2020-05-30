@@ -1,0 +1,47 @@
+﻿ContextMenu_JP = {
+    
+    ---------- Japanese - JP ----------
+    
+    ----- Coding/Programming Strings -----
+    ContextMenu_CustomizableZombies_true = "true",
+    ContextMenu_CustomizableZombies_false = "false",
+    
+    ----- Zombie Settings
+    ContextMenu_CustomizableZombies_HPMultiplier = "健康乗数",
+    
+    
+    ----- FakeDead -----
+    ContextMenu_CustomizableZombies_1_Title = "가짜 죽은 상태에서 스폰 할 확률 %",
+    ContextMenu_CustomizableZombies_1_Tooltip = "偽のデッド状態でスポーンする確率",
+    
+    
+    ----- Crawler -----
+    ContextMenu_CustomizableZombies_2_Title = "ゾンビクローラーの割合",
+    ContextMenu_CustomizableZombies_2_Tooltip = "ゾンビがクローラーになる確率。",
+    
+    
+    ----- Shambler -----
+    ContextMenu_CustomizableZombies_3_Title = "シャンブラーの割合",
+    ContextMenu_CustomizableZombies_3_Tooltip = "ゾンビがシャンブラーになる確率。",
+    
+    
+    ----- FastShambler -----
+    ContextMenu_CustomizableZombies_4_Title = "高速シャンブラーの割合",
+    ContextMenu_CustomizableZombies_4_Tooltip = "ゾンビが高速シャンブラーになる確率。",
+    
+    
+    ----- Sprinter -----
+    ContextMenu_CustomizableZombies_5_Title = "スプリンターの割合",
+    ContextMenu_CustomizableZombies_5_Tooltip = "ゾンビがスプリンターになる確率。",
+    
+    
+    ----- Preset -----
+    ContextMenu_CustomizableZombies_6_Title = "プリセット： ",
+    ContextMenu_CustomizableZombies_6_Tooltip = "便宜上、ここでプリセットを作成しました。",
+    
+    
+    ----- README Message -----
+    ContextMenu_CustomizableZombies_ReadmeMessage = "お読みください：<br>「アプライ」を押して、パーセンテージが希望どおりにバランスをとるようにします。 <br>ゾンビクローラー、シャンブラー、ファストシャンバー、スプリンターの割合は、合計で100％に等しくなければなりません。 <br><br>（フェイクデッド％は影響を受けません）",
+    
+    
+}

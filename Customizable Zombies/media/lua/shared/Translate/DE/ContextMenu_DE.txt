@@ -1,0 +1,47 @@
+ContextMenu_DE = {
+    
+    ---------- German - DE ----------
+    
+    ----- Coding/Programming Strings -----
+    ContextMenu_CustomizableZombies_true = "true",
+    ContextMenu_CustomizableZombies_false = "false",
+    
+    ----- Zombie Settings
+    ContextMenu_CustomizableZombies_HPMultiplier = "Gesundheitsmultiplikator",
+    
+    
+    ----- FakeDead -----
+    ContextMenu_CustomizableZombies_1_Title = "% Chance, im Zustand "Falsch Tot" zu erscheinen",
+    ContextMenu_CustomizableZombies_1_Tooltip = "Die prozentuale Wahrscheinlichkeit, dass sich ein Zombie in einem gefälschten toten Zustand befindet.",
+    
+    
+    ----- Crawler -----
+    ContextMenu_CustomizableZombies_2_Title = "% der Kriecher",
+    ContextMenu_CustomizableZombies_2_Tooltip = "Die prozentuale Wahrscheinlichkeit, dass ein Zombie ein der Kriecher ist.",
+    
+    
+    ----- Shambler -----
+    ContextMenu_CustomizableZombies_3_Title = "% der Gehhilfe",
+    ContextMenu_CustomizableZombies_3_Tooltip = "Die prozentuale Wahrscheinlichkeit, dass ein Zombie ein Gehhilfe ist.",
+    
+    
+    ----- FastShambler -----
+    ContextMenu_CustomizableZombies_4_Title = "% der Schnellen Gehhilfe",
+    ContextMenu_CustomizableZombies_4_Tooltip = "Die prozentuale Wahrscheinlichkeit, dass ein Zombie ein Schnellen Gehhilfe ist.",
+    
+    
+    ----- Sprinter -----
+    ContextMenu_CustomizableZombies_5_Title = "% der Sprinters",
+    ContextMenu_CustomizableZombies_5_Tooltip = "Die prozentuale Wahrscheinlichkeit, dass ein Zombie ein Sprinter ist.",
+    
+    
+    ----- Preset -----
+    ContextMenu_CustomizableZombies_6_Title = "Voreinstellung:",
+    ContextMenu_CustomizableZombies_6_Tooltip = "Ich habe hier voreinstellungen aus Gründen der Übersichtlichkeit erstellt.",
+    
+    
+    ----- README Message -----
+    ContextMenu_CustomizableZombies_ReadmeMessage = "README: <br>Klicken Sie auf "ANWENDEN", ??um sicherzustellen, dass die Prozentsätze Ihren Wünschen entsprechen. <br>Die Prozentsätze für der Kriecher, der Gehhilfe, der Schnellen Gehhilfe und der Sprinter müssen zusammen 100% betragen. <br><br>(Falsch Tot % ist nicht betroffen)",
+    
+    
+}

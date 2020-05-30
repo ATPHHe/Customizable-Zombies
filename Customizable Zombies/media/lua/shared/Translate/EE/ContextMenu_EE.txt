@@ -1,0 +1,47 @@
+ContextMenu_EN = {
+    
+    ---------- English - EE ----------
+    
+    ----- Coding/Programming Strings -----
+    ContextMenu_CustomizableZombies_true = "true",
+    ContextMenu_CustomizableZombies_false = "false",
+    
+    ----- Zombie Settings
+    ContextMenu_CustomizableZombies_HPMultiplier = "Health Multiplier",
+    
+    
+    ----- FakeDead -----
+    ContextMenu_CustomizableZombies_1_Title = "% chance to spawn in Fake Dead state",
+    ContextMenu_CustomizableZombies_1_Tooltip = "The % chance that a zombie will be in a Fake Dead state.",
+    
+    
+    ----- Crawler -----
+    ContextMenu_CustomizableZombies_2_Title = "% of Crawlers",
+    ContextMenu_CustomizableZombies_2_Tooltip = "The % chance that a zombie will be a Crawler.",
+    
+    
+    ----- Shambler -----
+    ContextMenu_CustomizableZombies_3_Title = "% of Shamblers",
+    ContextMenu_CustomizableZombies_3_Tooltip = "The % chance that a zombie will be a Shambler.",
+    
+    
+    ----- FastShambler -----
+    ContextMenu_CustomizableZombies_4_Title = "% of Fast Shamblers",
+    ContextMenu_CustomizableZombies_4_Tooltip = "The % chance that a zombie will be a Fast Shambler.",
+    
+    
+    ----- Sprinter -----
+    ContextMenu_CustomizableZombies_5_Title = "% of Sprinters",
+    ContextMenu_CustomizableZombies_5_Tooltip = "The % chance that a zombie will be a Sprinter.",
+    
+    
+    ----- Preset -----
+    ContextMenu_CustomizableZombies_6_Title = "Preset: ",
+    ContextMenu_CustomizableZombies_6_Tooltip = "I created presets here for convience.",
+    
+    
+    ----- README Message -----
+    ContextMenu_CustomizableZombies_ReadmeMessage = "README: <br>Hit 'APPLY' to make sure the percentages balance how you want it to. <br>The Crawler, Shambler, Fast Shamber, and Sprinter percentages must combine and equal 100% total. <br><br>(Fake Dead % is not affected)",
+    
+    
+}

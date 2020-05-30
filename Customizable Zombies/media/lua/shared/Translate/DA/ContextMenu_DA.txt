@@ -1,0 +1,47 @@
+ContextMenu_DA = {
+    
+    ---------- Danish - DA ----------
+    
+    ----- Coding/Programming Strings -----
+    ContextMenu_CustomizableZombies_true = "true",
+    ContextMenu_CustomizableZombies_false = "false",
+    
+    ----- Zombie Settings
+    ContextMenu_CustomizableZombies_HPMultiplier = "Sundheds Multiplikator",
+    
+    
+    ----- FakeDead -----
+    ContextMenu_CustomizableZombies_1_Title = "% chance for at spawn i en Falske døde tilstand",
+    ContextMenu_CustomizableZombies_1_Tooltip = "% Chancen for, at en zombie vil være i en Falske døde tilstand.",
+    
+    
+    ----- Crawler -----
+    ContextMenu_CustomizableZombies_2_Title = "% af Crawlere",
+    ContextMenu_CustomizableZombies_2_Tooltip = "% Chancen for, at en zombie vil være en Crawler.",
+    
+    
+    ----- Shambler -----
+    ContextMenu_CustomizableZombies_3_Title = "% af Shamblers",
+    ContextMenu_CustomizableZombies_3_Tooltip = "% Chancen for, at en zombie vil være en Shambler.",
+    
+    
+    ----- FastShambler -----
+    ContextMenu_CustomizableZombies_4_Title = "% af Hurtige Shamblers",
+    ContextMenu_CustomizableZombies_4_Tooltip = "% Chancen for, at en zombie vil være en Hurtig Shambler.",
+    
+    
+    ----- Sprinter -----
+    ContextMenu_CustomizableZombies_5_Title = "% af Sprinters",
+    ContextMenu_CustomizableZombies_5_Tooltip = "% Chancen for, at en zombie vil være en Sprinters.",
+    
+    
+    ----- Preset -----
+    ContextMenu_CustomizableZombies_6_Title = "Forudindstilling: ",
+    ContextMenu_CustomizableZombies_6_Tooltip = "Jeg oprettede forudindstillinger her for nemheds skyld.",
+    
+    
+    ----- README Message -----
+    ContextMenu_CustomizableZombies_ReadmeMessage = "LÆS MIG: <br>Tryk på 'ANSØGE' for at sikre, at procentdelene er i balance, hvordan du vil have det. <br>Procentsatserne for Crawler, Shambler, Hurtige Shamber og Sprinter skal kombineres og være 100% i alt. <br><br>(Falske døde % påvirkes ikke)",
+    
+    
+}

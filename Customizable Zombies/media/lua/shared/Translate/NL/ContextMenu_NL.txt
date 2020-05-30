@@ -1,0 +1,47 @@
+ContextMenu_NL = {
+    
+    ---------- Dutch - NL ----------
+    
+    ----- Coding/Programming Strings -----
+    ContextMenu_CustomizableZombies_true = "waar",
+    ContextMenu_CustomizableZombies_false = "onwaar",
+    
+    ----- Zombie Settings
+    ContextMenu_CustomizableZombies_HPMultiplier = "Gezondheid Vermenigvuldiger",
+    
+    
+    ----- FakeDead -----
+    ContextMenu_CustomizableZombies_1_Title = "% kans om te spawnen in Nep Dode staat",
+    ContextMenu_CustomizableZombies_1_Tooltip = "De % kans dat een zombie in een Nep Dode staat is.",
+    
+    
+    ----- Crawler -----
+    ContextMenu_CustomizableZombies_2_Title = "% van Crawler",
+    ContextMenu_CustomizableZombies_2_Tooltip = "De % kans dat een zombie een Crawler wordt.",
+    
+    
+    ----- Shambler -----
+    ContextMenu_CustomizableZombies_3_Title = "% Shamblers",
+    ContextMenu_CustomizableZombies_3_Tooltip = "De % kans dat een zombie een Shamblers wordt.",
+    
+    
+    ----- FastShambler -----
+    ContextMenu_CustomizableZombies_4_Title = "% Snelle Shamblers",
+    ContextMenu_CustomizableZombies_4_Tooltip = "De % kans dat een zombie een Snelle Shambler wordt.",
+    
+    
+    ----- Sprinter -----
+    ContextMenu_CustomizableZombies_5_Title = "% Sprinters",
+    ContextMenu_CustomizableZombies_5_Tooltip = "De% kans dat een zombie een Sprinter wordt.",
+    
+    
+    ----- Preset -----
+    ContextMenu_CustomizableZombies_6_Title = "Vooraf ingesteld: ",
+    ContextMenu_CustomizableZombies_6_Tooltip = "Ik heb hier voorinstellingen gemaakt voor het gemak.",
+    
+    
+    ----- README Message -----
+    ContextMenu_CustomizableZombies_ReadmeMessage = "LEESME: <br>Druk op 'TOEPASSEN' om ervoor te zorgen dat de percentages in balans zijn zoals u dat wilt. <br>De percentages Crawler, Shambler, Snelle Shamber en Sprinter moeten in totaal 100% bedragen. <br><br>(Nep Dode % wordt niet beïnvloed)",
+    
+    
+}
