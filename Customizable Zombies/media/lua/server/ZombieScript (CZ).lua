@@ -121,8 +121,25 @@ function setZombieAttributesCustomizableZombies(zombie)
             zombie:setFakeDead(false)
         end
         
+        
         --local curHealth = zombie:getHealth()
-        local health = 1.8 + ZombRandFloat(0.0, 0.3)
+        local health = 1.5 + ZombRandFloat(0.0, 0.3)
+        local zToughness = SandboxVars.ZombieLore.Toughness
+        if not zombie:isFakeDead() then
+            if (zToughness == 1) then
+                health = 3.5 + ZombRandFloat(0.0, 0.3)
+            elseif (zToughness == 2) then
+                health = 1.5 + ZombRandFloat(0.0, 0.3)
+            elseif (zToughness == 3) then
+                health = 0.5 + ZombRandFloat(0.0, 0.3)
+            elseif (zToughness == 4) then
+                health = ZombRandFloat(0.5, 3.5) + ZombRandFloat(0.0, 0.3)
+            end
+        else
+            health = 0.5 + ZombRandFloat(0.0, 0.3)
+        end
+        --print(zToughness)
+        
         
         -- Crawler
         if zModData.ZombieTypeCZ == "Crawler" then 
