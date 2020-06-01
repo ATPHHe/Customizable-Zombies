@@ -8,6 +8,7 @@ ContextMenu_TH = {
     
     ----- Zombie Settings
     ContextMenu_CustomizableZombies_HPMultiplier = "ตัวคูณสุขภาพ",
+    ContextMenu_CustomizableZombies_HPMultiplier_Tooltip = "(ค่าเริ่มต้น: 1.000) คูณสุขภาพของซอมบี้ด้วยจำนวนนี้",
     
     
     ----- FakeDead -----

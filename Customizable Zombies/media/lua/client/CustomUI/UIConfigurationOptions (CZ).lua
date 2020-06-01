@@ -390,7 +390,7 @@ function MainOptions:create()
     -- HPMultiplier --
     y = y
     local title = getText("ContextMenu_CustomizableZombies_HPMultiplier")
-    local tooltip = getText("ContextMenu_CustomizableZombies_HPMultiplier")
+    local tooltip = getText("ContextMenu_CustomizableZombies_HPMultiplier_Tooltip")
     local gameOptionSubKey = 'HPMultiplier'
     local options = getOptions(gameOptionSubKey)
     
@@ -463,7 +463,7 @@ function MainOptions:create()
     -- HPMultiplier --
     y = y
     local title = getText("ContextMenu_CustomizableZombies_HPMultiplier")
-    local tooltip = getText("ContextMenu_CustomizableZombies_HPMultiplier")
+    local tooltip = getText("ContextMenu_CustomizableZombies_HPMultiplier_Tooltip")
     local gameOptionSubKey = 'HPMultiplier'
     local options = getOptions(gameOptionSubKey)
     
@@ -536,7 +536,7 @@ function MainOptions:create()
     -- HPMultiplier --
     y = y
     local title = getText("ContextMenu_CustomizableZombies_HPMultiplier")
-    local tooltip = getText("ContextMenu_CustomizableZombies_HPMultiplier")
+    local tooltip = getText("ContextMenu_CustomizableZombies_HPMultiplier_Tooltip")
     local gameOptionSubKey = 'HPMultiplier'
     local options = getOptions(gameOptionSubKey)
     
@@ -570,7 +570,7 @@ function MainOptions:create()
     
     y = y + spacing
     
-    ----- Runner -----
+    ----- Sprinter / Runner -----
     local title = getText("ContextMenu_CustomizableZombies_5_Title")
     local tooltip = getText("ContextMenu_CustomizableZombies_5_Tooltip")
     local gameOptionName = 'Runner'
@@ -609,7 +609,7 @@ function MainOptions:create()
     -- HPMultiplier --
     y = y
     local title = getText("ContextMenu_CustomizableZombies_HPMultiplier")
-    local tooltip = getText("ContextMenu_CustomizableZombies_HPMultiplier")
+    local tooltip = getText("ContextMenu_CustomizableZombies_HPMultiplier_Tooltip")
     local gameOptionSubKey = 'HPMultiplier'
     local options = getOptions(gameOptionSubKey)
     

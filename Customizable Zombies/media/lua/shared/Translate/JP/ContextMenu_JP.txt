@@ -8,6 +8,7 @@
     
     ----- Zombie Settings
     ContextMenu_CustomizableZombies_HPMultiplier = "健康乗数",
+    ContextMenu_CustomizableZombies_HPMultiplier_Tooltip = "（デフォルト：1.000）ゾンビのヘルスにこの数値を掛けます。",
     
     
     ----- FakeDead -----

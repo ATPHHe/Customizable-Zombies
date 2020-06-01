@@ -8,6 +8,7 @@ ContextMenu_CN = {
     
     ----- Zombie Settings
     ContextMenu_CustomizableZombies_HPMultiplier = "健康乘数",
+    ContextMenu_CustomizableZombies_HPMultiplier_Tooltip = "（默认值：1.000）将僵尸的生命值乘以该数字。",
     
     
     ----- FakeDead -----

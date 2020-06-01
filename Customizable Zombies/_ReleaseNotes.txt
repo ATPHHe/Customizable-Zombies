@@ -1,11 +1,8 @@
-Customizable Zombies 2.3.3
-- Hotfix: Fixed HP Multiplier so that it now works with the Sandbox Zombie Lore option "Toughness".
-
-Customizable Zombies 2.3.2
-- Hotfix: Fixed minor bug with "CZombie" causing some errors.
-
-Customizable Zombies 2.3.1
-- Hotfix: Fixed translation for HP Multiplier.
+Customizable Zombies [2.3.4 - 2.3.1]
+- [2.3.4] Added tooltip to "$HPMultiplier$" setting.
+- [2.3.3] Hotfix: Fixed HP Multiplier so that it now works with the Sandbox Zombie Lore option "Toughness".
+- [2.3.2] Hotfix: Fixed minor bug with "CZombie" causing some errors.
+- [2.3.1] Hotfix: Fixed translation for HP Multiplier.
 
 Customizable Zombies 2.3.0
 - Feature: You may now modify the health of zombies using the "$HPMultiplier$" setting in the Game "Options" inside the tab "CZombie".

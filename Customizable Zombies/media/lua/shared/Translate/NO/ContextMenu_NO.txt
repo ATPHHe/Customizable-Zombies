@@ -8,6 +8,7 @@ ContextMenu_NO = {
     
     ----- Zombie Settings
     ContextMenu_CustomizableZombies_HPMultiplier = "Helsemultiplikator",
+    ContextMenu_CustomizableZombies_HPMultiplier_Tooltip = "(Standard: 1.000) Multipliserer zombiens helse med dette nummeret.",
     
     
     ----- FakeDead -----

@@ -8,6 +8,7 @@ ContextMenu_RU = {
     
     ----- Zombie Settings
     ContextMenu_CustomizableZombies_HPMultiplier = "Множитель Здоровья",
+    ContextMenu_CustomizableZombies_HPMultiplier_Tooltip = "По умолчанию: 1.000. Умножает здоровье зомби на это число.",
     
     
     ----- FakeDead -----
