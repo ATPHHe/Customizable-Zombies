@@ -1,3 +1,6 @@
+Customizable Zombies 2.3.5
+- Changed "$HPMultiplier$" setting. You may now type in numbers for this setting. MIN VALUE = 0.001, MAX VALUE = 100.
+
 Customizable Zombies [2.3.4 - 2.3.1]
 - [2.3.4] Added tooltip to "$HPMultiplier$" setting.
 - [2.3.3] Hotfix: Fixed HP Multiplier so that it now works with the Sandbox Zombie Lore option "Toughness".

@@ -10,6 +10,8 @@
 
 require "ISUI/ISPanel"
 
+local VERSION = "2.3.5"
+
 --local FONT_HGT_SMALL = getTextManager():getFontHeight(UIFont.Small)
 --local FONT_HGT_MEDIUM = getTextManager():getFontHeight(UIFont.Medium)
 --local FONT_HGT_LARGE = getTextManager():getFontHeight(UIFont.Large)
@@ -26,25 +28,31 @@ local function okModal(_text, _centered, _width, _height, _posX, _posY, _func)
 
     -- center the modal if necessary
     if centered then
-        posX = core:getScreenWidth() * 0.5 - width * 0.5;
-        posY = core:getScreenHeight() * 0.5 - height * 0.5;
+        posX = core:getScreenWidth() * 0.5 - width;
+        posY = core:getScreenHeight() * 0.5 - height;
     end
 
     local modal = ISModalDialog:new(posX, posY, width, height, txt, false, nil, func);
+	modal.backgroundColor = {r=0, g=0, b=0, a=1};
+	
+	modal.render = function()
+		modal:bringToTop()
+	end
+	
     modal:initialise();
     modal:addToUIManager();
 end
 
 
 
-Events.OnGameStart.Add(function()
+local function showUpdate()
     
     local util = CZ_Util
     
     local data = util.LoadFromFile("_data", true)
     if not data or data[1] == nil then 
         data = {} end
-    if data[1] == "true" then return end
+    if data[1] == VERSION then return end
     
     local fContents = util.LoadFromFile("_ReleaseNotes.txt", true)
     
@@ -74,7 +82,7 @@ Events.OnGameStart.Add(function()
     okModal(text, true, nil, nil, nil, nil, 
                 function() 
                     data = {}
-                    data[1] = true
+                    data[1] = VERSION
                     
                     local text = "";
                     for i, v in ipairs(data) do
@@ -90,8 +98,8 @@ Events.OnGameStart.Add(function()
                     return
                 end)
     
-end)
+end
 
-
+Events.OnMainMenuEnter.Add(showUpdate)
 
 
