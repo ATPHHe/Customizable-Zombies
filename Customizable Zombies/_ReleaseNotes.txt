@@ -1,3 +1,7 @@
+Customizable Zombies 2.3.6
+- Language Improvements.
+- Russian (RU): Improved by Droopi.
+
 Customizable Zombies 2.3.5
 - Changed "$HPMultiplier$" setting. You may now type in numbers for this setting. MIN VALUE = 0.001, MAX VALUE = 100.
 

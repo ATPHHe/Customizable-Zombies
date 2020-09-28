@@ -1,48 +1,50 @@
 ContextMenu_RU = {
     
     ---------- Russian - RU ----------
-    
+	
+    ----- Translation Improved by Droopi -----
+	
     ----- Coding/Programming Strings -----
     ContextMenu_CustomizableZombies_true = "правда",
     ContextMenu_CustomizableZombies_false = "ложный",
     
     ----- Zombie Settings
-    ContextMenu_CustomizableZombies_HPMultiplier = "Множитель Здоровья",
+    ContextMenu_CustomizableZombies_HPMultiplier = "Множитель здоровья",
     ContextMenu_CustomizableZombies_HPMultiplier_Tooltip = "По умолчанию: 1.000. Умножает здоровье зомби на это число.",
     
     
     ----- FakeDead -----
-    ContextMenu_CustomizableZombies_1_Title = "% вероятность появления в поддельном мертвом состоянии",
-    ContextMenu_CustomizableZombies_1_Tooltip = "% Вероятности того, что зомби окажется в поддельном мертвом состоянии.",
+    ContextMenu_CustomizableZombies_1_Title = "% Вероятности появления в поддельном мертвом состоянии",
+    ContextMenu_CustomizableZombies_1_Tooltip = "% Вероятности того, что зомби появится в поддельном мертвом состоянии.",
     
     
     ----- Crawler -----
-    ContextMenu_CustomizableZombies_2_Title = "% зомби гусеничным",
-    ContextMenu_CustomizableZombies_2_Tooltip = "% Вероятность того, что зомби гусеничным.",
+    ContextMenu_CustomizableZombies_2_Title = "% Ползающих зомби",
+    ContextMenu_CustomizableZombies_2_Tooltip = "% Вероятность появления ползающих зомби.",
     
     
     ----- Shambler -----
-    ContextMenu_CustomizableZombies_3_Title = "% Шамблеров",
-    ContextMenu_CustomizableZombies_3_Tooltip = "% Вероятности того, что зомби станет Шамблером.",
+    ContextMenu_CustomizableZombies_3_Title = "% Медленно ходящих",
+    ContextMenu_CustomizableZombies_3_Tooltip = "% Вероятности появления медленно ходящих зомби.",
     
     
     ----- FastShambler -----
-    ContextMenu_CustomizableZombies_4_Title = "% быстрых шамблеров",
-    ContextMenu_CustomizableZombies_4_Tooltip = "% Вероятности того, что зомби станет Быстрым Шамблером.",
+    ContextMenu_CustomizableZombies_4_Title = "% Быстро ходящих",
+    ContextMenu_CustomizableZombies_4_Tooltip = "% Вероятности появления быстро ходящих зомби.",
     
     
     ----- Sprinter -----
-    ContextMenu_CustomizableZombies_5_Title = "% Sprinters",
-    ContextMenu_CustomizableZombies_5_Tooltip = "% Вероятности того, что зомби станет Sprinter.",
+    ContextMenu_CustomizableZombies_5_Title = "% Бегающих",
+    ContextMenu_CustomizableZombies_5_Tooltip = "% Вероятности появления бегающих зомби.",
     
     
     ----- Preset -----
     ContextMenu_CustomizableZombies_6_Title = "Предустановленные: ",
-    ContextMenu_CustomizableZombies_6_Tooltip = "Я создал пресеты здесь для удобства.",
+    ContextMenu_CustomizableZombies_6_Tooltip = "Тут содержатся заранее подготовленные шаблоны соотношений для удобства.",
     
     
     ----- README Message -----
-    ContextMenu_CustomizableZombies_ReadmeMessage = "ПРОЧТИ МЕНЯ: <br>Нажмите «ПРИМЕНЯТЬ», чтобы убедиться, что проценты сбалансированы так, как вы хотите. <br>Процентное содержание гусениц, шамблеров, быстрых шамберов и Sprinter должно быть равно 100%. <br><br>(Поддельный мертвый% не затрагивается)",
+    ContextMenu_CustomizableZombies_ReadmeMessage = "ПРОЧТИ МЕНЯ: <br>Общее процентное количество ползающих, медленных, быстрых и бегающих зомби должно быть равно 100%. <br>Нажмите «ПРИНЯТЬ», и итоговая сумма всех % будет автоматически скорректирована до 100 если вручную она была выставлена неправильно. <br><br>(ВНИМАНИЕ! Поддельные мертвые зомби не входят в общие 100% остальных зомби, а считаются отдельно)",
     
     
 }
