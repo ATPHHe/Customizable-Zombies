@@ -29,8 +29,6 @@ local crawlerChance = 0
 
 local allowCustomize = true
 
-local zlist = ArrayList.new()
-
 local function initCZ()
     configOpts = CZ_Util.io_persistence.load(CZ_Util.ConfigFileLocation, CZ_Util.MOD_ID);
     gameVersion = tonumber(CZ_Util.GameVersionNumber);
@@ -413,6 +411,7 @@ Events.EveryTenMinutes.Add(sandboxChecker)
 
 --Events.OnGameStart.Add(setSandboxOptionsCustomizableZombies)
 Events.OnLoad.Add(initCZ)
+Events.OnServerStarted.Add(initCZ)
 
 
 -- A new game starts.
@@ -430,6 +429,8 @@ end)
 --]]
 
 --
+local zlist = ArrayList.new()
+
 local ticks1 = 0
 local function OnTick()
     ticks1 = ticks1 + 1
@@ -456,15 +457,15 @@ function SetCustomizableZombies(player)
     
     local tlist = player:getCell():getZombieList();
     
-    if zlist then
-        for i=0, tlist:size()-1 do
-            local z = tlist:get(i)
-            if not zlist:contains( z ) then
-                zlist:add( z )
-            end
+    if not zlist then
+        zlist = ArrayList.new()
+    end
+    
+    for i=0, tlist:size()-1 do
+        local z = tlist:get(i)
+        if not zlist:contains( z ) then
+            zlist:add( z )
         end
-    else
-        zlist = tlist
     end
     
 	--if not zlist then		
@@ -482,6 +483,14 @@ function SetCustomizableZombies(player)
     end
     --]]
 end
+
+--[[
+local function OnWeaponHitCharacter(attacker, target, weapon, damageSplit)
+	print("Zombie Current Health: " .. target:getHealth())
+end
+
+Events.OnWeaponHitCharacter.Add(OnWeaponHitCharacter);
+--]]
 
 local OnClientCommand = function(module, command, player, args)
 	if not isServer() or module ~= CZ_Util.MOD_ID or command ~= "SetCustomizableZombies" then
