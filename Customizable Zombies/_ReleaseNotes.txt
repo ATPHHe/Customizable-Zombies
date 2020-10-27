@@ -1,3 +1,6 @@
+Customizable Zombies 2.3.8
+- Hotfix [Mod Conflict Bug]: Fixed the client lua file that would sometimes randomly break when running this mod along with Superb Survivors. This mod should now be very stable with Superb Survivors.
+
 Customizable Zombies 2.3.7
 - [Build 40.43] Fixed an issue where zombies don't spawn with preferred settings when creating a hosted multiplayer server from the main menu.
 

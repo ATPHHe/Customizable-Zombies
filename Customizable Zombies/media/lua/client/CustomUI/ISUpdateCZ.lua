@@ -10,7 +10,7 @@
 
 require "ISUI/ISPanel"
 
-local VERSION = "2.3.7"
+local VERSION = "2.3.8"
 
 --local FONT_HGT_SMALL = getTextManager():getFontHeight(UIFont.Small)
 --local FONT_HGT_MEDIUM = getTextManager():getFontHeight(UIFont.Medium)
