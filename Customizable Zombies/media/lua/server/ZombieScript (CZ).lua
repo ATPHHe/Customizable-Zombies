@@ -151,6 +151,9 @@ function setZombieAttributesCustomizableZombies(zombie)
         -- Shambler
         if zModData.ZombieTypeCZ == "Shambler" then 
             --zombie:setSpeedMod(0.55)
+            if zombie:getSpeedMod() < 0.55 then
+                zombie:toggleCrawling()
+            end
             zombie:changeSpeed(3)
             zombie:setHealth(health * (configOpts["Shambler"]["HPMultiplier"] / 10 / 100))
         end
@@ -158,12 +161,18 @@ function setZombieAttributesCustomizableZombies(zombie)
         -- Fast Shambler
         if zModData.ZombieTypeCZ == "Fast Shambler" then 
             --zombie:setSpeedMod(0.85)
+            if zombie:getSpeedMod() < 0.55 then
+                zombie:toggleCrawling()
+            end
             zombie:changeSpeed(2)
             zombie:setHealth(health * (configOpts["FastShambler"]["HPMultiplier"] / 10 / 100))
         end
         
         -- Runner
         if zModData.ZombieTypeCZ == "Runner" then 
+            if zombie:getSpeedMod() < 0.55 then
+                zombie:toggleCrawling()
+            end
             zombie:changeSpeed(1)
             zombie:setHealth(health * (configOpts["Runner"]["HPMultiplier"] / 10 / 100))
         end
@@ -276,17 +285,19 @@ function checkZombieAttributesCustomizableZombies(zombie)
         
         -- Fake Dead
         if zModData.IsFakeDead == "Fake Dead" then 
-            --[[if not zombie:isFakeDead() then
+            --[[
+            if not zombie:isFakeDead() then
                 zombie:setFakeDead(true)
                 if gameVersion >= 41 then 
                     zombie:setMoving(false) 
                     zombie:DoZombieStats() 
                 end
-            end]]
+            end
+            --]]
             return
-        elseif zombie:isFakeDead() then
-            zombie:setFakeDead(false)
-            if gameVersion >= 41 then zombie:DoZombieStats() end
+        --elseif zombie:isFakeDead() then
+        --    zombie:setFakeDead(false)
+        --    if gameVersion >= 41 then zombie:DoZombieStats() end
         end
         
         if zModData.IsFakeDead == "Fake Dead 2" then

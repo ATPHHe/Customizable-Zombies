@@ -1,3 +1,6 @@
+Customizable Zombies 2.3.9
+- Found and fixed issue with crawling zombie numbers increasing.
+
 Customizable Zombies 2.3.8
 - Hotfix [Mod Conflict Bug]: Fixed the client lua file that would sometimes randomly break when running this mod along with Superb Survivors. This mod should now be very stable with Superb Survivors.
 
