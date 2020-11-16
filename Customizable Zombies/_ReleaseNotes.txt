@@ -1,3 +1,6 @@
+Customizable Zombies 2.4.0
+- Hotfix: fixed a bug that caused the "$HPMultiplier$" to not apply to zombies over time.
+
 Customizable Zombies 2.3.9
 - Found and fixed issue with crawling zombie numbers increasing.
 

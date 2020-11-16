@@ -29,6 +29,12 @@ local crawlerChance = 0
 
 local allowCustomize = true
 
+local minHealthFakeDead, maxHealthFakeDead = 1, 1
+local minHealthCrawler, maxHealthCrawler = 1, 1
+local minHealthShambler, maxHealthShambler = 1, 1
+local minHealthFastShambler, maxHealthFastShambler = 1, 1
+local minHealthSprinter, maxHealthSprinter = 1, 1
+
 local function initCZ()
     configOpts = CZ_Util.io_persistence.load(CZ_Util.ConfigFileLocation, CZ_Util.MOD_ID);
     gameVersion = tonumber(CZ_Util.GameVersionNumber);
@@ -39,6 +45,72 @@ local function initCZ()
     
     fakeDeadChance = configOpts["FakeDead"]["ChanceToSpawn"]
     crawlerChance = configOpts["Crawler"]["ChanceToSpawn"]
+    
+    --**** HEALTH STUFF ****
+    --local curHealth = zombie:getHealth()
+    local minHealth, maxHealth = 1, 1
+    local zToughness = SandboxVars.ZombieLore.Toughness
+    if (zToughness == 1) then
+        --health = 1.5 + ZombRandFloat(0.0, 0.3)
+        minHealth = 3.5
+        maxHealth = minHealth + 0.3
+        
+        minHealthFakeDead = 0.5
+        maxHealthFakeDead = 0.8
+        minHealthCrawler = minHealth * configOpts["Crawler"]["HPMultiplier"] / 10 / 100
+        maxHealthCrawler = maxHealth * configOpts["Crawler"]["HPMultiplier"] / 10 / 100
+        minHealthShambler = minHealth * configOpts["Shambler"]["HPMultiplier"] / 10 / 100
+        maxHealthShambler = maxHealth * configOpts["Shambler"]["HPMultiplier"] / 10 / 100
+        minHealthFastShambler = minHealth * configOpts["FastShambler"]["HPMultiplier"] / 10 / 100
+        maxHealthFastShambler = maxHealth * configOpts["FastShambler"]["HPMultiplier"] / 10 / 100
+        minHealthSprinter = minHealth * configOpts["Runner"]["HPMultiplier"] / 10 / 100
+        maxHealthSprinter = maxHealth * configOpts["Runner"]["HPMultiplier"] / 10 / 100
+    elseif (zToughness == 2) then
+        --health = 1.5 + ZombRandFloat(0.0, 0.3)
+        minHealth = 1.5
+        maxHealth = minHealth + 0.3
+        
+        minHealthFakeDead = 0.5
+        maxHealthFakeDead = 0.8
+        minHealthCrawler = minHealth * configOpts["Crawler"]["HPMultiplier"] / 10 / 100
+        maxHealthCrawler = maxHealth * configOpts["Crawler"]["HPMultiplier"] / 10 / 100
+        minHealthShambler = minHealth * configOpts["Shambler"]["HPMultiplier"] / 10 / 100
+        maxHealthShambler = maxHealth * configOpts["Shambler"]["HPMultiplier"] / 10 / 100
+        minHealthFastShambler = minHealth * configOpts["FastShambler"]["HPMultiplier"] / 10 / 100
+        maxHealthFastShambler = maxHealth * configOpts["FastShambler"]["HPMultiplier"] / 10 / 100
+        minHealthSprinter = minHealth * configOpts["Runner"]["HPMultiplier"] / 10 / 100
+        maxHealthSprinter = maxHealth * configOpts["Runner"]["HPMultiplier"] / 10 / 100
+    elseif (zToughness == 3) then
+        --health = 0.5 + ZombRandFloat(0.0, 0.3)
+        minHealth = 0.5
+        maxHealth = minHealth + 0.3
+        
+        minHealthFakeDead = 0.5
+        maxHealthFakeDead = 0.8
+        minHealthCrawler = minHealth * configOpts["Crawler"]["HPMultiplier"] / 10 / 100
+        maxHealthCrawler = maxHealth * configOpts["Crawler"]["HPMultiplier"] / 10 / 100
+        minHealthShambler = minHealth * configOpts["Shambler"]["HPMultiplier"] / 10 / 100
+        maxHealthShambler = maxHealth * configOpts["Shambler"]["HPMultiplier"] / 10 / 100
+        minHealthFastShambler = minHealth * configOpts["FastShambler"]["HPMultiplier"] / 10 / 100
+        maxHealthFastShambler = maxHealth * configOpts["FastShambler"]["HPMultiplier"] / 10 / 100
+        minHealthSprinter = minHealth * configOpts["Runner"]["HPMultiplier"] / 10 / 100
+        maxHealthSprinter = maxHealth * configOpts["Runner"]["HPMultiplier"] / 10 / 100
+    elseif (zToughness == 4) then
+        --health = ZombRandFloat(0.5, 3.5) + ZombRandFloat(0.0, 0.3)
+        minHealth = 0.5
+        maxHealth = 3.8
+        
+        minHealthFakeDead = 0.5
+        maxHealthFakeDead = 0.8
+        minHealthCrawler = minHealth * configOpts["Crawler"]["HPMultiplier"] / 10 / 100
+        maxHealthCrawler = maxHealth * configOpts["Crawler"]["HPMultiplier"] / 10 / 100
+        minHealthShambler = minHealth * configOpts["Shambler"]["HPMultiplier"] / 10 / 100
+        maxHealthShambler = maxHealth * configOpts["Shambler"]["HPMultiplier"] / 10 / 100
+        minHealthFastShambler = minHealth * configOpts["FastShambler"]["HPMultiplier"] / 10 / 100
+        maxHealthFastShambler = maxHealth * configOpts["FastShambler"]["HPMultiplier"] / 10 / 100
+        minHealthSprinter = minHealth * configOpts["Runner"]["HPMultiplier"] / 10 / 100
+        maxHealthSprinter = maxHealth * configOpts["Runner"]["HPMultiplier"] / 10 / 100
+    end
 end
 
 -- Sets a zombie's attributes.
@@ -283,6 +355,34 @@ function checkZombieAttributesCustomizableZombies(zombie)
         --print(speedTypeVal)
         --print(bCrawlingVal)
         
+        -- Crawler
+        if zModData.ZombieTypeCZ == "Crawler" then 
+            if zombie:getHealth() < minHealthCrawler or zombie:getHealth() > maxHealthCrawler then
+                zombie:setHealth(health * (configOpts["Crawler"]["HPMultiplier"] / 10 / 100))
+            end
+        
+        
+        -- Shambler
+        elseif zModData.ZombieTypeCZ == "Shambler" then 
+            if zombie:getHealth() < minHealthShambler or zombie:getHealth() > maxHealthShambler then
+                zombie:setHealth(health * (configOpts["Shambler"]["HPMultiplier"] / 10 / 100))
+            end
+        
+        
+        -- Fast Shambler
+        elseif zModData.ZombieTypeCZ == "Fast Shambler" then 
+            if zombie:getHealth() < minHealthFastShambler or zombie:getHealth() > maxHealthFastShambler then
+                zombie:setHealth(health * (configOpts["FastShambler"]["HPMultiplier"] / 10 / 100))
+            end
+        
+        
+        -- Runner
+        elseif zModData.ZombieTypeCZ == "Runner" then 
+            if zombie:getHealth() < minHealthSprinter or zombie:getHealth() > maxHealthSprinter then
+                zombie:setHealth(health * (configOpts["Runner"]["HPMultiplier"] / 10 / 100))
+            end
+        end
+        
         -- Fake Dead
         if zModData.IsFakeDead == "Fake Dead" then 
             --[[
@@ -312,26 +412,26 @@ function checkZombieAttributesCustomizableZombies(zombie)
                 if gameVersion >= 41 then zombie:DoZombieStats() end
             end
             return
-        end
+        --end
         
         -- Shambler
-        if zModData.ZombieTypeCZ == "Shambler" and speedTypeVal ~= 3 and not bCrawlingVal then 
+        elseif zModData.ZombieTypeCZ == "Shambler" and speedTypeVal ~= 3 and not bCrawlingVal then 
             --zombie:setSpeedMod(0.55)
             zombie:changeSpeed(3)
             if gameVersion >= 41 then zombie:DoZombieStats() end
             return
-        end
+        --end
         
         -- Fast Shambler
-        if zModData.ZombieTypeCZ == "Fast Shambler" and speedTypeVal ~= 2 and not bCrawlingVal then 
+        elseif zModData.ZombieTypeCZ == "Fast Shambler" and speedTypeVal ~= 2 and not bCrawlingVal then 
             --zombie:setSpeedMod(0.85)
             zombie:changeSpeed(2)
             if gameVersion >= 41 then zombie:DoZombieStats() end
             return
-        end
+        --end
         
         -- Runner
-        if zModData.ZombieTypeCZ == "Runner" and speedTypeVal ~= 1 and not bCrawlingVal then 
+        elseif zModData.ZombieTypeCZ == "Runner" and speedTypeVal ~= 1 and not bCrawlingVal then 
             zombie:changeSpeed(1)
             if gameVersion >= 41 then zombie:DoZombieStats() end
             return
