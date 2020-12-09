@@ -8,7 +8,7 @@ Mod for Project Zomboid
 1. If you have not set up a Steam Dedicated Server already, click this link and follow the guide below the headings, "**Through the Steam Client**" and "**Starting the Server**". https://steamcommunity.com/sharedfiles/filedetails/?id=514493377
 
 2. Once your dedicated Server is creating and works, make sure your server is not running. If it is running, quit/shutdown your server by typing "quit" into the console and press enter.
-<br>![Imgur](https://imgur.com/JYX6VAr.png)
+<br>![Imgur](https://imgur.com/jZxOrRg.png)
 
 3. To add "Customizable Zombies" to your dedicated server, run your game "Project Zomboid" and click "Host" from the title screen.
 <br>![Imgur](https://imgur.com/lcFyYls.png) 
