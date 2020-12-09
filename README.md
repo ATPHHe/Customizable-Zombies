@@ -35,6 +35,10 @@ Mod for Project Zomboid
 
 12. Here are the settings below.
   * I am using Integers to store the settings.
-    * ChanceToSpawn: 0 to 1000 (0.0% to 100.0%) <br>
-    * HPMultiplier: 0 = 0.000, 1000 = 1.000, 2000 = 2.000, 3000 = 3.000, etc. <br>
+    * ChanceToSpawn: RANGE = 0 to 1000 (0.0% to 100.0%) <br>
+    * HPMultiplier: 1 = 0.001, 1000 = 1.000, 2000 = 2.000, 3000 = 3.000, etc. <br>
+    * **NOTE:** The "Crawler", "Shamber", "FastShambler", and "Runner" and their "ChanceToSpawn" must all add up to 1000 (100.0%) otherwise they may not spawn correctly. <br>
 <br>![Imgur](https://imgur.com/SZsGQws.png)
+
+13. Save the file once you are finished
+14. Start up your server and join it and enjoy.
