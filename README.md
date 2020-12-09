@@ -3,7 +3,7 @@ Mod for Project Zomboid
 
 # How to modify configuration files for Steam Dedicated Server (12/9/20)
 
-**(SKIP to Step 9 if you already have a Dedicated Server with this mod added, created and working.)**
+**NOTE: (SKIP to Step 9 if you already have a Dedicated Server with this mod added, created and working.)**
 
 1. If you have not set up a Steam Dedicated Server already, click this link and follow the guide below the headings, "**Through the Steam Client**" and "**Starting the Server**". https://steamcommunity.com/sharedfiles/filedetails/?id=514493377
 
