@@ -5,7 +5,7 @@ Mod for Project Zomboid
 
 **NOTE: (SKIP to Step 9 if you already have a Dedicated Server with this mod added, created and working.)**
 
-1. If you have not set up a Steam Dedicated Server already, click this link and follow the guide below the headings, "**Through the Steam Client**" and "**Starting the Server**". https://steamcommunity.com/sharedfiles/filedetails/?id=514493377
+1. If you have not set up a Steam Dedicated Server already, click this link and follow this guide (by nasKo) below the headings, "**Through the Steam Client**" and "**Starting the Server**". https://steamcommunity.com/sharedfiles/filedetails/?id=514493377
 
 2. Once your dedicated Server is creating and works, make sure your server is not running. If it is running, quit/shutdown your server by typing "quit" into the console and press enter.
 <br>![Imgur](https://imgur.com/jZxOrRg.png)
