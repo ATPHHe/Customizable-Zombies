@@ -40,5 +40,5 @@ Mod for Project Zomboid
     * **NOTE:** The "Crawler", "Shamber", "FastShambler", and "Runner" and their "ChanceToSpawn" must all add up to 1000 (100.0%) otherwise they may not spawn correctly. <br>
 <br>![Imgur](https://imgur.com/SZsGQws.png)
 
-13. Save the file once you are finished
-14. Start up your server and join it and enjoy.
+13. Save and close the file once you are finished.
+14. Start up your server, join, and the settings should apply.
