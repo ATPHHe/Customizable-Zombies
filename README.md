@@ -10,20 +10,20 @@ Mod for Project Zomboid
 2. Once your dedicated Server is creating and works, make sure your server is not running. If it is running, quit/shutdown your server by typing "quit" into the console and press enter.
 <br>![Imgur](https://imgur.com/JYX6VAr.png)
 
-3. To add "Customizable Zombies" to your server, run your game "Project Zomboid" and click "Host" from the title screen.
+3. To add "Customizable Zombies" to your dedicated server, run your game "Project Zomboid" and click "Host" from the title screen.
 <br>![Imgur](https://imgur.com/lcFyYls.png) 
 
 4. Click "Manage settings...".
 <br>![Imgur](https://imgur.com/P4FgDkA.png) 
 
-5. Click on "servertest". If there is no settings named "servertest", click "Create New Settings" and create a settings named "servertest".
+5. You should have a settings named "servertest" which was created when you started up your dedicated server from step #1. If there is no settings named "servertest", click "Create New Settings" and create a settings named "servertest".
 
 6. Click on "servertest" and edit the settings for it.
 
 7. Click on "Steam Workshop" and add "Customizble Zombies" from the dropdown list.
 <br>![Imgur](https://imgur.com/7ICzllZ.png)
 
-8. Click "Save".
+8. Click "Save". Start up your dedicated server to generate the configuration files, then shutdown the dedicated server.
 
 9. To edit the configuration files, navigate to your dedicated server's location. 
 <br>My server is stored at "D:\Games\SteamLibrary\steamapps\common\Project Zomboid Dedicated Server". Your location may be different depending on how you installed your Project Zomboid Dedicated Server.
