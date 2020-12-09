@@ -36,7 +36,7 @@ Mod for Project Zomboid
 
 12. Here are the settings below.
   * I am using Integers to store the settings.
-    * ChanceToSpawn: RANGE = 0 to 1000 (0.0% to 100.0%) <br>
+    * ChanceToSpawn: 0 to 1000 (0.0% to 100.0%) <br>
     * HPMultiplier: 1 = 0.001, 1000 = 1.000, 2000 = 2.000, 3000 = 3.000, etc. <br>
     * **NOTE:** The "Crawler", "Shamber", "FastShambler", and "Runner" and their "ChanceToSpawn" must all add up to 1000 (100.0%) otherwise they may not spawn correctly. <br>
 <br>![Imgur](https://imgur.com/SZsGQws.png)
