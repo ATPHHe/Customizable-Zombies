@@ -16,7 +16,7 @@ Mod for Project Zomboid
 4. Click "Manage settings...".
 <br>![Imgur](https://imgur.com/P4FgDkA.png) 
 
-5. You should have a settings named "servertest" which was created when you started up your dedicated server from step #1. If there is no settings named "servertest", click "Create New Settings" and create a settings named "servertest".
+5. You should have a settings named "servertest" created when you created/started up your Dedicated Server from Step 1. If there is no settings named "servertest", click "Create New Settings" and create a settings named "servertest".
 
 6. Click on "servertest" and edit the settings for it.
 
