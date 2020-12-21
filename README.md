@@ -42,4 +42,4 @@ Mod for Project Zomboid
 <br>![Imgur](https://imgur.com/OtvU6br.png)
 
 13. Save and close the file once you are finished.
-14. Start up your server, join, and the settings will apply.
+14. Start up your server and join.
