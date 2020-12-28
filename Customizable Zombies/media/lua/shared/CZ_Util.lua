@@ -11,7 +11,7 @@ CZ_Util.__index = CZ_Util
 
 CZ_Util.Author = "ATPHHe"
 CZ_Util.DateCreated = "02/07/2020"
-CZ_Util.DateModified = "05/25/2020"
+CZ_Util.DateModified = "12/27/2020"
 CZ_Util.MOD_ID = "CustomizableZombies"
 
 CZ_Util.GameVersion = getCore():getVersionNumber()

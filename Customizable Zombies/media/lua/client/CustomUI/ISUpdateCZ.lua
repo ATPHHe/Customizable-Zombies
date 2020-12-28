@@ -41,6 +41,7 @@ local function okModal(_text, _centered, _width, _height, _posX, _posY, _func)
 	
     modal:initialise();
     modal:addToUIManager();
+    
 end
 
 

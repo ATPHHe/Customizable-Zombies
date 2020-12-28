@@ -126,7 +126,8 @@ function setZombieAttributesCustomizableZombies(zombie)
     
 	if zModData.finishedCustomizableZombies ~= "done" then
         --print(dieCount)
-        zModData.ZombieTypeCZ = "Normal"
+        --zModData.ZombieTypeCZ = "Normal"
+        zModData.ZombieTypeCZ = ""
         
         -- 1000 = 100.0% (Floats have Floating point errors and I do not want to use them.)
         if number3 < 0 then return end
@@ -325,6 +326,14 @@ function checkZombieAttributesCustomizableZombies(zombie)
         return
     end
     
+    local square = zombie:getSquare()
+    for i=0, getNumActivePlayers() do
+        if square:isCanSee(i) then 
+            --print("CAN SEE PLAYER " .. i .. ".") 
+            return 
+        end
+    end
+    
     local zModData = zombie:getModData();
     
     ------------------------------
@@ -351,40 +360,111 @@ function checkZombieAttributesCustomizableZombies(zombie)
         end
         local speedTypeVal = getClassFieldVal(zombie, speedType);
         local bCrawlingVal = getClassFieldVal(zombie, bCrawling);
+        local isFakeDead = zombie:isFakeDead();
         
         --print(speedTypeVal)
         --print(bCrawlingVal)
         
+        --[[
         -- Crawler
         if zModData.ZombieTypeCZ == "Crawler" then 
-            if zombie:getHealth() < minHealthCrawler or zombie:getHealth() > maxHealthCrawler then
+            if zombie:getHealth() > maxHealthCrawler then
+                --local curHealth = zombie:getHealth()
+                local health = 1.5 + ZombRandFloat(0.0, 0.3)
+                local zToughness = SandboxVars.ZombieLore.Toughness
+                if not zombie:isFakeDead() then
+                    if (zToughness == 1) then
+                        health = 3.5 + ZombRandFloat(0.0, 0.3)
+                    elseif (zToughness == 2) then
+                        health = 1.5 + ZombRandFloat(0.0, 0.3)
+                    elseif (zToughness == 3) then
+                        health = 0.5 + ZombRandFloat(0.0, 0.3)
+                    elseif (zToughness == 4) then
+                        health = ZombRandFloat(0.5, 3.5) + ZombRandFloat(0.0, 0.3)
+                    end
+                else
+                    health = 0.5 + ZombRandFloat(0.0, 0.3)
+                end
+                --print(zToughness)
                 zombie:setHealth(health * (configOpts["Crawler"]["HPMultiplier"] / 10 / 100))
             end
         
         
         -- Shambler
         elseif zModData.ZombieTypeCZ == "Shambler" then 
-            if zombie:getHealth() < minHealthShambler or zombie:getHealth() > maxHealthShambler then
+            if zombie:getHealth() > maxHealthShambler then
+                --local curHealth = zombie:getHealth()
+                local health = 1.5 + ZombRandFloat(0.0, 0.3)
+                local zToughness = SandboxVars.ZombieLore.Toughness
+                if not zombie:isFakeDead() then
+                    if (zToughness == 1) then
+                        health = 3.5 + ZombRandFloat(0.0, 0.3)
+                    elseif (zToughness == 2) then
+                        health = 1.5 + ZombRandFloat(0.0, 0.3)
+                    elseif (zToughness == 3) then
+                        health = 0.5 + ZombRandFloat(0.0, 0.3)
+                    elseif (zToughness == 4) then
+                        health = ZombRandFloat(0.5, 3.5) + ZombRandFloat(0.0, 0.3)
+                    end
+                else
+                    health = 0.5 + ZombRandFloat(0.0, 0.3)
+                end
+                --print(zToughness)
                 zombie:setHealth(health * (configOpts["Shambler"]["HPMultiplier"] / 10 / 100))
             end
         
         
         -- Fast Shambler
         elseif zModData.ZombieTypeCZ == "Fast Shambler" then 
-            if zombie:getHealth() < minHealthFastShambler or zombie:getHealth() > maxHealthFastShambler then
+            if zombie:getHealth() > maxHealthFastShambler then
+                --local curHealth = zombie:getHealth()
+                local health = 1.5 + ZombRandFloat(0.0, 0.3)
+                local zToughness = SandboxVars.ZombieLore.Toughness
+                if not zombie:isFakeDead() then
+                    if (zToughness == 1) then
+                        health = 3.5 + ZombRandFloat(0.0, 0.3)
+                    elseif (zToughness == 2) then
+                        health = 1.5 + ZombRandFloat(0.0, 0.3)
+                    elseif (zToughness == 3) then
+                        health = 0.5 + ZombRandFloat(0.0, 0.3)
+                    elseif (zToughness == 4) then
+                        health = ZombRandFloat(0.5, 3.5) + ZombRandFloat(0.0, 0.3)
+                    end
+                else
+                    health = 0.5 + ZombRandFloat(0.0, 0.3)
+                end
+                --print(zToughness)
                 zombie:setHealth(health * (configOpts["FastShambler"]["HPMultiplier"] / 10 / 100))
             end
         
         
         -- Runner
         elseif zModData.ZombieTypeCZ == "Runner" then 
-            if zombie:getHealth() < minHealthSprinter or zombie:getHealth() > maxHealthSprinter then
+            if zombie:getHealth() > maxHealthSprinter then
+                --local curHealth = zombie:getHealth()
+                local health = 1.5 + ZombRandFloat(0.0, 0.3)
+                local zToughness = SandboxVars.ZombieLore.Toughness
+                if not zombie:isFakeDead() then
+                    if (zToughness == 1) then
+                        health = 3.5 + ZombRandFloat(0.0, 0.3)
+                    elseif (zToughness == 2) then
+                        health = 1.5 + ZombRandFloat(0.0, 0.3)
+                    elseif (zToughness == 3) then
+                        health = 0.5 + ZombRandFloat(0.0, 0.3)
+                    elseif (zToughness == 4) then
+                        health = ZombRandFloat(0.5, 3.5) + ZombRandFloat(0.0, 0.3)
+                    end
+                else
+                    health = 0.5 + ZombRandFloat(0.0, 0.3)
+                end
+                --print(zToughness)
                 zombie:setHealth(health * (configOpts["Runner"]["HPMultiplier"] / 10 / 100))
             end
         end
+        --]]
         
         -- Fake Dead
-        if zModData.IsFakeDead == "Fake Dead" then 
+        if zModData.IsFakeDead == "Fake Dead" or zModData.IsFakeDead == "Fake Dead 2" or isFakeDead then 
             --[[
             if not zombie:isFakeDead() then
                 zombie:setFakeDead(true)
@@ -400,12 +480,14 @@ function checkZombieAttributesCustomizableZombies(zombie)
         --    if gameVersion >= 41 then zombie:DoZombieStats() end
         end
         
-        if zModData.IsFakeDead == "Fake Dead 2" then
-            return
-        end
+        --if zModData.IsFakeDead == "Fake Dead 2" then
+        --    return
+        --end
+        
+        if bCrawlingVal then return end;
         
         -- Crawler
-        if zModData.ZombieTypeCZ == "Crawler" and not bCrawlingVal then 
+        if zModData.ZombieTypeCZ == "Crawler" then 
             --zombie:setSpeedMod(1.0)
             if zombie:getSpeedMod() >= 0.55 then
                 zombie:toggleCrawling()
@@ -415,7 +497,7 @@ function checkZombieAttributesCustomizableZombies(zombie)
         --end
         
         -- Shambler
-        elseif zModData.ZombieTypeCZ == "Shambler" and speedTypeVal ~= 3 and not bCrawlingVal then 
+        elseif zModData.ZombieTypeCZ == "Shambler" and speedTypeVal ~= 3 then 
             --zombie:setSpeedMod(0.55)
             zombie:changeSpeed(3)
             if gameVersion >= 41 then zombie:DoZombieStats() end
@@ -423,7 +505,7 @@ function checkZombieAttributesCustomizableZombies(zombie)
         --end
         
         -- Fast Shambler
-        elseif zModData.ZombieTypeCZ == "Fast Shambler" and speedTypeVal ~= 2 and not bCrawlingVal then 
+        elseif zModData.ZombieTypeCZ == "Fast Shambler" and speedTypeVal ~= 2 then 
             --zombie:setSpeedMod(0.85)
             zombie:changeSpeed(2)
             if gameVersion >= 41 then zombie:DoZombieStats() end
@@ -431,7 +513,7 @@ function checkZombieAttributesCustomizableZombies(zombie)
         --end
         
         -- Runner
-        elseif zModData.ZombieTypeCZ == "Runner" and speedTypeVal ~= 1 and not bCrawlingVal then 
+        elseif zModData.ZombieTypeCZ == "Runner" and speedTypeVal ~= 1 then 
             zombie:changeSpeed(1)
             if gameVersion >= 41 then zombie:DoZombieStats() end
             return
