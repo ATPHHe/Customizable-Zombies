@@ -691,7 +691,7 @@ local function OnTick()
             checkZombieAttributesCustomizableZombies(zombie, t["player"])
             --if gameVersion >= 41 then fakeDeadFunctions(zombie) end
             
-            print(zlist:size())
+            --print(zlist:size())
             zlist:remove(t)
         end
     end
