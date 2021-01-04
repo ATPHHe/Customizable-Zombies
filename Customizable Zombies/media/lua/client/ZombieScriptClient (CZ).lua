@@ -1,6 +1,6 @@
 
 --
-local interval = 512;
+local interval = 8192;
 local PUCount = 0;
 local function UpdateClient()
     local player = getPlayer();

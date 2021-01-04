@@ -125,6 +125,22 @@ function setZombieAttributesCustomizableZombies(zombie)
     end
     
 	if zModData.finishedCustomizableZombies ~= "done" then
+        
+        local speedType, bCrawling
+        for i=0, getNumClassFields(zombie)-1 do
+            local field = getClassField(zombie, i)
+            --print(tostring(field))
+            if tostring(field) == "public int zombie.characters.IsoZombie.speedType" then
+                speedType = field; 
+            end
+            if tostring(field) == "public boolean zombie.characters.IsoZombie.bCrawling" then
+                bCrawling = field; 
+            end
+        end
+        local speedTypeVal = getClassFieldVal(zombie, speedType);
+        local bCrawlingVal = getClassFieldVal(zombie, bCrawling);
+        local isFakeDead = zombie:isFakeDead();
+        
         --print(dieCount)
         --zModData.ZombieTypeCZ = "Normal"
         zModData.ZombieTypeCZ = ""
@@ -216,6 +232,7 @@ function setZombieAttributesCustomizableZombies(zombie)
         if zModData.ZombieTypeCZ == "Crawler" then 
             --zombie:setSpeedMod(1.0)
             if zombie:getSpeedMod() >= 0.55 then
+                zombie:changeSpeed(2)
                 zombie:toggleCrawling()
             end
             zombie:setHealth(health * (configOpts["Crawler"]["HPMultiplier"] / 10 / 100))
@@ -224,7 +241,7 @@ function setZombieAttributesCustomizableZombies(zombie)
         -- Shambler
         if zModData.ZombieTypeCZ == "Shambler" then 
             --zombie:setSpeedMod(0.55)
-            if zombie:getSpeedMod() < 0.55 then
+            if zombie:getSpeedMod() < 0.55 or bCrawlingVal then
                 zombie:toggleCrawling()
             end
             zombie:changeSpeed(3)
@@ -234,7 +251,7 @@ function setZombieAttributesCustomizableZombies(zombie)
         -- Fast Shambler
         if zModData.ZombieTypeCZ == "Fast Shambler" then 
             --zombie:setSpeedMod(0.85)
-            if zombie:getSpeedMod() < 0.55 then
+            if zombie:getSpeedMod() < 0.55 or bCrawlingVal then
                 zombie:toggleCrawling()
             end
             zombie:changeSpeed(2)
@@ -243,7 +260,7 @@ function setZombieAttributesCustomizableZombies(zombie)
         
         -- Runner
         if zModData.ZombieTypeCZ == "Runner" then 
-            if zombie:getSpeedMod() < 0.55 then
+            if zombie:getSpeedMod() < 0.55 or bCrawlingVal then
                 zombie:toggleCrawling()
             end
             zombie:changeSpeed(1)
@@ -318,7 +335,7 @@ function setZombieAttributesCustomizableZombies(zombie)
 end
 
 -- Checks the zombie and update them if they are not the correct type.
-function checkZombieAttributesCustomizableZombies(zombie)
+function checkZombieAttributesCustomizableZombies(zombie, playerObj)
     --print(tostring(zombie:getObjectName()) .. " | " .. tostring(zombie:getName()) )
     
     -----------------------------------------------
@@ -326,13 +343,42 @@ function checkZombieAttributesCustomizableZombies(zombie)
         return
     end
     
-    local square = zombie:getSquare()
-    for i=0, getNumActivePlayers() do
-        if square:isCanSee(i) then 
-            --print("CAN SEE PLAYER " .. i .. ".") 
-            return 
+    --
+    if playerObj then
+        local lineOfSightTestResults = LosUtil.lineClear(playerObj:getCell(), 
+                                                        zombie:getX(), zombie:getY(), zombie:getZ(), 
+                                                        playerObj:getX(), playerObj:getY(), playerObj:getZ(), 
+                                                        false);
+        --print(string.format("%s", tostring(lineOfSightTestResults)));
+        
+        if tostring(lineOfSightTestResults) ~= "Blocked" then
+            --print("CAN SEE PLAYER " .. playerObj:getFullName() .. ".") 
+            return
         end
     end
+    --]]
+    
+    --
+    local players = getOnlinePlayers();
+    if players then
+        for i=0, players:size()-1 do
+            --print("PLAYERS "..i)
+            local playerObjTemp = players:get(i);
+            if playerObjTemp then
+                local lineOfSightTestResults = LosUtil.lineClear(playerObjTemp:getCell(), 
+                                                                zombie:getX(), zombie:getY(), zombie:getZ(), 
+                                                                playerObjTemp:getX(), playerObjTemp:getY(), playerObjTemp:getZ(), 
+                                                                false);
+                --print(string.format("%s", tostring(lineOfSightTestResults)));
+                
+                if tostring(lineOfSightTestResults) ~= "Blocked" then
+                    --print("CAN SEE PLAYER " .. playerObjTemp:getFullName() .. ".") 
+                    return
+                end
+            end
+        end
+    end
+    --]]
     
     local zModData = zombie:getModData();
     
@@ -488,8 +534,10 @@ function checkZombieAttributesCustomizableZombies(zombie)
         
         -- Crawler
         if zModData.ZombieTypeCZ == "Crawler" then 
-            --zombie:setSpeedMod(1.0)
-            if zombie:getSpeedMod() >= 0.55 then
+            --zombie:setSpeedMod(0.55)
+            if zombie:getSpeedMod() >= 0.55 or not bCrawlingVal or speedTypeVal == 1 or speedTypeVal == 3 then
+                --zombie:setSpeedMod(0.35)
+                zombie:changeSpeed(2)
                 zombie:toggleCrawling()
                 if gameVersion >= 41 then zombie:DoZombieStats() end
             end
@@ -499,6 +547,7 @@ function checkZombieAttributesCustomizableZombies(zombie)
         -- Shambler
         elseif zModData.ZombieTypeCZ == "Shambler" and speedTypeVal ~= 3 then 
             --zombie:setSpeedMod(0.55)
+            if bCrawlingVal then zombie:toggleCrawling() end
             zombie:changeSpeed(3)
             if gameVersion >= 41 then zombie:DoZombieStats() end
             return
@@ -507,6 +556,7 @@ function checkZombieAttributesCustomizableZombies(zombie)
         -- Fast Shambler
         elseif zModData.ZombieTypeCZ == "Fast Shambler" and speedTypeVal ~= 2 then 
             --zombie:setSpeedMod(0.85)
+            if bCrawlingVal then zombie:toggleCrawling() end
             zombie:changeSpeed(2)
             if gameVersion >= 41 then zombie:DoZombieStats() end
             return
@@ -514,6 +564,7 @@ function checkZombieAttributesCustomizableZombies(zombie)
         
         -- Runner
         elseif zModData.ZombieTypeCZ == "Runner" and speedTypeVal ~= 1 then 
+            if bCrawlingVal then zombie:toggleCrawling() end
             zombie:changeSpeed(1)
             if gameVersion >= 41 then zombie:DoZombieStats() end
             return
@@ -631,16 +682,17 @@ local function OnTick()
     if ticks1 >= 2 then
         ticks1 = 0
         if zlist and zlist:size() > 0 then
-            local zombie = zlist:get(0)
+            local t = zlist:get(0)
+            local zombie = t["zombie"]
             --print(zombie)
             
-            if not zombie then zlist:remove(zombie) return end
+            if not zombie then zlist:remove(t) return end
             
-            checkZombieAttributesCustomizableZombies(zombie)
+            checkZombieAttributesCustomizableZombies(zombie, t["player"])
             --if gameVersion >= 41 then fakeDeadFunctions(zombie) end
             
-            --print(zlist:size())
-            zlist:remove(zombie)
+            print(zlist:size())
+            zlist:remove(t)
         end
     end
 end
@@ -654,11 +706,15 @@ function SetCustomizableZombies(player)
         zlist = ArrayList.new()
     end
     
+    if zlist:size() > 200000 then return end
+    
     for i=0, tlist:size()-1 do
         local z = tlist:get(i)
-        if not zlist:contains( z ) then
+        local t = {zombie=z, player=player}
+        zlist:add( t )
+        --[[if not zlist:contains( z ) then
             zlist:add( z )
-        end
+        end--]]
     end
     
 	--if not zlist then		
@@ -690,6 +746,7 @@ local OnClientCommand = function(module, command, player, args)
 		return
 	end;
 	SetCustomizableZombies(player);
+    
 end
 Events.OnClientCommand.Add(OnClientCommand);
 --]]

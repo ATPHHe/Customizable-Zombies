@@ -1,5 +1,5 @@
-Customizable Zombies 2.4.0
-- Hotfix: fixed a rare bug involving zombies that sometimes stand up randomly near players.
+Customizable Zombies 2.4.0 (fixed for Multiplayer)
+- Fixed a bug involving zombies that sometimes stand up randomly near players.
 
 Customizable Zombies 2.3.9
 - Found and fixed issue with crawling zombie numbers increasing.
