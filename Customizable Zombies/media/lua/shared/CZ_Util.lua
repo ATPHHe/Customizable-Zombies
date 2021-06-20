@@ -11,8 +11,9 @@ CZ_Util.__index = CZ_Util
 
 CZ_Util.Author = "ATPHHe"
 CZ_Util.DateCreated = "02/07/2020"
-CZ_Util.DateModified = "01/4/2021"
+CZ_Util.DateModified = "06/20/2021"
 CZ_Util.MOD_ID = "CustomizableZombies"
+CZ_Util.MOD_VERSION = "2.4.1"
 
 CZ_Util.GameVersion = getCore():getVersionNumber()
 CZ_Util.GameVersionNumber = 0
@@ -43,6 +44,22 @@ CZ_Util.ConfigFileLocation = CZ_Util.ConfigFileName
 
 --*********************************************
 -- Other Useful Functions
+
+function CZ_Util.table_to_string(tbl)
+    local s = {"return {"}
+    for i=1,#tbl do
+        s[#s+1] = "{"
+        for j=1,#tbl[i] do
+            s[#s+1] = tbl[i][j]
+            s[#s+1] = ","
+        end
+        s[#s+1] = "},"
+    end
+    s[#s+1] = "}"
+    s = table.concat(s)
+    
+    return s
+end
 
 function CZ_Util.tprint(tbl, indent)
     if not indent then indent = 0 end

@@ -9,7 +9,22 @@
 --============================================================
 local settingsTitle = "CZombie"
 
+CustomizableZombiesUI = {}
 --============================================================
+
+function CustomizableZombiesUI.init()
+    if not isClient() then --singleplayer
+        if InitCustomizableZombies then 
+            InitCustomizableZombies(CZ_Util.configOpts);
+        end
+        
+        return;
+    end
+    
+    local strConfigOpts = CZ_Util.table_to_string(CZ_Util.configOpts)
+    sendClientCommand(player, CZ_Util.MOD_ID, "InitCustomizableZombies", {strConfigOpts=strConfigOpts})
+end
+
 
 -- Overwrite old values of HPMultipliers
 if CZ_Util.configOpts["Version"] ~= "2.3.0" then
@@ -862,6 +877,7 @@ function checkIfPercentIsValidCZ(commitToSave)
     
     if commitToSave then 
         CZ_Util.io_persistence.store(CZ_Util.ConfigFileLocation, CZ_Util.MOD_ID, CZ_Util.configOpts)
+        CustomizableZombiesUI.init()
     end
 end
 
@@ -873,3 +889,6 @@ function toggleRandCZ(boolToggle)
     end
     return boolToggle
 end
+
+
+

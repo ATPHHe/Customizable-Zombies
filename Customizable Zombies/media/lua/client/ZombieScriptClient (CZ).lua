@@ -1,6 +1,6 @@
 
 --
-local interval = 8192;
+local interval = 2048;
 local PUCount = 0;
 local function UpdateClient()
     local player = getPlayer();
@@ -22,7 +22,8 @@ end
 
 local function PlayerUpdateHandle(player)
     PUCount = PUCount + 1;
-    if(PUCount == interval) then
+	--print(PUCount);
+    if(PUCount >= interval) then
         UpdateClient();
         PUCount = 0;
     end

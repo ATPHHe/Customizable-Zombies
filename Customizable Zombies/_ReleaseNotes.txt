@@ -1,3 +1,6 @@
+Customizable Zombies 2.4.1
+- [Build 41.50 IWBUMS] Fixed issue with Crawlers not spawning properly.
+
 Customizable Zombies 2.4.0 (fixed for Multiplayer)
 - Fixed a bug involving zombies that sometimes stand up randomly near players.
 
