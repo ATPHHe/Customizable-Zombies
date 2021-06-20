@@ -235,7 +235,7 @@ function setZombieAttributesCustomizableZombies(zombie)
 			end
             if gameVersion >= 41 then 
 				--TODO: Wait until FakeDead is fixed by devs. Zombies get up with no animation or don't go into FakeDead state.
-				--zombie:setFakeDead(true) 
+				zombie:setFakeDead(true) 
 			end
         else 
             zombie:setFakeDead(false)
@@ -489,7 +489,7 @@ function checkZombieAttributesCustomizableZombies(zombie, playerObj)
 					zombie:setFakeDead(true)
                 elseif gameVersion >= 41 then 
 					--TODO: Wait until FakeDead is fixed by devs. Zombies get up with no animation or don't go into FakeDead state.
-					--zombie:setFakeDead(true)
+					zombie:setFakeDead(true)
                     zombie:DoZombieStats() 
                 end
             end
