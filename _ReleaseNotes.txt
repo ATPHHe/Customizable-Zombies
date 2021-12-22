@@ -1,3 +1,10 @@
+Customizable Zombies 2.4.2
+- [Build 41.60+ MP] Fixed errors caused by a function for Build 41.60+ MP.
+- [Build 41.60+ MP] Credits to Bondzberg and Dogfight for informing me about a fix.
+
+Customizable Zombies 2.4.1.1
+- Fixed a display issue in the Options UI.
+
 Customizable Zombies 2.4.1
 - [Build 41.50 IWBUMS] Fixed issue with Crawlers not spawning properly.
 

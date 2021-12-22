@@ -2,13 +2,6 @@
 local multiRefObjects = {
 
 } -- multiRefObjects
-
--- "ChanceToSpawn" -    1000    = 100%
--- "ChanceToSpawn" -    500     = 50%
--- "ChanceToSpawn" -    1       = 0.1%
--- "HPMultiplier" -     1000    = 1.000
--- "HPMultiplier" -     4000    = 4.000
--- "HPMultiplier" -     1       = 0.001
 local obj1 = {
 	["FakeDead"] = {
 		["ChanceToSpawn"] = 20;

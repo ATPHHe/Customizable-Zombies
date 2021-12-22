@@ -123,18 +123,18 @@ function InitCustomizableZombies(tConfigOpts)
     end
 end
 
--- Sets a zombie's attributes.
+-- Sets a zombie's attributes based on percentages.
 function setZombieAttributesCustomizableZombies(zombie)
     
     --zombie:setAttackDelayMax(0.01)
-	local zModData = zombie:getModData();
+    local zModData = zombie:getModData();
     --local dieCount = zombie:getDieCount()
     
     if not allowCustomize then
         return
     end
     
-	if zModData.finishedCustomizableZombies ~= "done" then
+    if zModData.finishedCustomizableZombies ~= "done" then
         
         local speedType, bCrawling
         for i=0, getNumClassFields(zombie)-1 do
@@ -164,28 +164,30 @@ function setZombieAttributesCustomizableZombies(zombie)
         
         -- Fake Dead
         if 0 < rand1 and rand1 <= fakeDeadChance then 
-			zModData.IsFakeDead = "Fake Dead"
+            zModData.IsFakeDead = "Fake Dead"
         end
         
         -- Crawler
-		if 0 < rand2 and rand2 <= crawlerChance then 
-			zModData.ZombieTypeCZ = "Crawler"
-		end
-		
+        if 0 < rand2 and rand2 <= crawlerChance then 
+            if gameVersion >= 41.53 then 
+                zModData.ZombieTypeCZ = "Crawler"
+            end
+        end
+        
         -- Shambler
-		if crawlerChance < rand2 and rand2 <= number1 then 
-			zModData.ZombieTypeCZ = "Shambler"
-		end
+        if crawlerChance < rand2 and rand2 <= number1 then 
+            zModData.ZombieTypeCZ = "Shambler"
+        end
         
         -- Fast Shambler
-		if number1 < rand2 and rand2 <= number2 then 
-			zModData.ZombieTypeCZ = "Fast Shambler"
-		end
+        if number1 < rand2 and rand2 <= number2 then 
+            zModData.ZombieTypeCZ = "Fast Shambler"
+        end
         
         -- Runner
-		if number2 < rand2 and rand2 <= number3 then 
-			zModData.ZombieTypeCZ = "Runner"
-		end
+        if number2 < rand2 and rand2 <= number3 then 
+            zModData.ZombieTypeCZ = "Runner"
+        end
         
         --print(zModData.finishedCustomizableZombies)
         --print(zModData.ZombieTypeCZ)
@@ -228,31 +230,42 @@ function setZombieAttributesCustomizableZombies(zombie)
         end
         --print(zToughness)
         
-		-- Fake Dead
+        -- Fake Dead
         if zModData.IsFakeDead == "Fake Dead" then 
             if gameVersion < 41 then 
-				zombie:setFakeDead(true) 
-			end
+                zombie:setFakeDead(true) 
+            end
             if gameVersion >= 41 then 
-				--TODO: Wait until FakeDead is fixed by devs. Zombies get up with no animation or don't go into FakeDead state.
-				zombie:setFakeDead(true) 
-			end
+                --TODO: Wait until FakeDead is fixed by devs. Zombies get up with no animation or don't go into FakeDead state.
+                --zombie:setFakeDead(true) 
+            end
         else 
-            zombie:setFakeDead(false)
+            if gameVersion < 41 then 
+                zombie:setFakeDead(false) 
+            end
+            if gameVersion >= 41 then 
+                --TODO: Wait until FakeDead is fixed by devs. Zombies get up with no animation or don't go into FakeDead state.
+                --zombie:setFakeDead(false) 
+            end
         end
-		
+        
         -- Crawler
         if zModData.ZombieTypeCZ == "Crawler" then 
             --zombie:setSpeedMod(1.0)
             if zombie:getSpeedMod() >= 0.55 then
-				if gameVersion < 41 then
-					zombie:changeSpeed(2)
-					zombie:toggleCrawling()
-                elseif gameVersion >= 41 then 
-					zombie:changeSpeed(2)
-					--zombie:setCanCrawlUnderVehicle(true)
-					zombie:setCanWalk(false)
-					zombie:toggleCrawling()
+                if gameVersion < 41 then
+                    zombie:changeSpeed(2)
+                    zombie:toggleCrawling()
+                elseif gameVersion >= 41 and gameVersion < 41.60 then 
+                    zombie:changeSpeed(2)
+                    --zombie:setCanCrawlUnderVehicle(true)
+                    zombie:setCanWalk(false)
+                    zombie:toggleCrawling()
+                elseif gameVersion >= 41.60 then 
+                    getSandboxOptions():set("ZombieLore.Speed", 2)
+                    --zombie:setCanCrawlUnderVehicle(true)
+                    zombie:setCanWalk(false)
+                    zombie:toggleCrawling()
                 end
             end
             zombie:setHealth(health * (configOpts["Crawler"]["HPMultiplier"] / 10 / 100))
@@ -262,12 +275,18 @@ function setZombieAttributesCustomizableZombies(zombie)
         if zModData.ZombieTypeCZ == "Shambler" then 
             --zombie:setSpeedMod(0.55)
             if zombie:getSpeedMod() < 0.55 or bCrawlingVal then
-				if gameVersion >= 41 then 
-					zombie:setCanWalk(true)
-				end
+                if gameVersion >= 41 then 
+                    zombie:setCanWalk(true)
+                end
                 zombie:toggleCrawling()
             end
-            zombie:changeSpeed(3)
+            if gameVersion < 41 then
+                zombie:changeSpeed(3)
+            elseif gameVersion >= 41 and gameVersion < 41.60 then 
+                zombie:changeSpeed(3)
+            elseif gameVersion >= 41.60 then 
+                getSandboxOptions():set("ZombieLore.Speed", 3)
+            end
             zombie:setHealth(health * (configOpts["Shambler"]["HPMultiplier"] / 10 / 100))
         end
         
@@ -275,29 +294,45 @@ function setZombieAttributesCustomizableZombies(zombie)
         if zModData.ZombieTypeCZ == "Fast Shambler" then 
             --zombie:setSpeedMod(0.85)
             if zombie:getSpeedMod() < 0.55 or bCrawlingVal then
-				if gameVersion >= 41 then 
-					zombie:setCanWalk(true)
-				end
+                if gameVersion >= 41 then 
+                    zombie:setCanWalk(true)
+                end
                 zombie:toggleCrawling()
             end
-            zombie:changeSpeed(2)
+            if gameVersion < 41 then
+                zombie:changeSpeed(2)
+            elseif gameVersion >= 41 and gameVersion < 41.60 then 
+                zombie:changeSpeed(2)
+            elseif gameVersion >= 41.60 then 
+                getSandboxOptions():set("ZombieLore.Speed", 2)
+            end
             zombie:setHealth(health * (configOpts["FastShambler"]["HPMultiplier"] / 10 / 100))
         end
         
         -- Runner
         if zModData.ZombieTypeCZ == "Runner" then 
             if zombie:getSpeedMod() < 0.55 or bCrawlingVal then
-				if gameVersion >= 41 then 
-					zombie:setCanWalk(true)
-				end
+                if gameVersion >= 41 then 
+                    zombie:setCanWalk(true)
+                end
                 zombie:toggleCrawling()
             end
-            zombie:changeSpeed(1)
+            if gameVersion < 41 then
+                zombie:changeSpeed(1)
+            elseif gameVersion >= 41 and gameVersion < 41.60 then 
+                zombie:changeSpeed(1)
+            elseif gameVersion >= 41.60 then 
+                getSandboxOptions():set("ZombieLore.Speed", 1)
+            end
             zombie:setHealth(health * (configOpts["Runner"]["HPMultiplier"] / 10 / 100))
         end
         
         -- Apply stats (Works only for Build 41+; Causes speed bugs with any build under 41).
-        if gameVersion >= 41 then zombie:DoZombieStats() end
+        if gameVersion >= 41 then
+            zombie:makeInactive(true);
+            zombie:makeInactive(false);
+            zombie:DoZombieStats()
+        end
         
         --zombie:transmitModData()
         
@@ -306,7 +341,7 @@ function setZombieAttributesCustomizableZombies(zombie)
     
 end
 
--- Checks the zombie and update them if they are not the correct type.
+-- Checks a zombie and update them if they are not the correct type.
 function checkZombieAttributesCustomizableZombies(zombie, playerObj)
     --print(tostring(zombie:getObjectName()) .. " | " .. tostring(zombie:getName()) )
     
@@ -486,11 +521,11 @@ function checkZombieAttributesCustomizableZombies(zombie, playerObj)
             --
             if not zombie:isFakeDead() then
                 if gameVersion < 41 then 
-					zombie:setFakeDead(true)
+                    zombie:setFakeDead(true)
                 elseif gameVersion >= 41 then 
-					--TODO: Wait until FakeDead is fixed by devs. Zombies get up with no animation or don't go into FakeDead state.
-					zombie:setFakeDead(true)
-                    zombie:DoZombieStats() 
+                    --TODO: Wait until FakeDead is fixed by devs. Zombies get up with no animation or don't go into FakeDead state.
+                    --zombie:setFakeDead(true)
+                    --zombie:DoZombieStats() 
                 end
             end
             --]]
@@ -511,14 +546,19 @@ function checkZombieAttributesCustomizableZombies(zombie, playerObj)
             --zombie:setSpeedMod(0.55)
             if zombie:getSpeedMod() >= 0.55 or not bCrawlingVal or speedTypeVal == 1 or speedTypeVal == 3 then
                 --zombie:setSpeedMod(0.35)
-				if gameVersion < 41 then
-					zombie:changeSpeed(2)
-					zombie:toggleCrawling()
-                elseif gameVersion >= 41 then 
-					zombie:changeSpeed(2)
-					--zombie:setCanCrawlUnderVehicle(true)
-					zombie:setCanWalk(false)
-					zombie:toggleCrawling()
+                if gameVersion < 41 then
+                    zombie:changeSpeed(2)
+                    zombie:toggleCrawling()
+                elseif gameVersion >= 41 and gameVersion < 41.60 then 
+                    zombie:changeSpeed(2)
+                    --zombie:setCanCrawlUnderVehicle(true)
+                    zombie:setCanWalk(false)
+                    zombie:toggleCrawling()
+                elseif gameVersion >= 41.60 then 
+                    getSandboxOptions():set("ZombieLore.Speed", 2)
+                    --zombie:setCanCrawlUnderVehicle(true)
+                    zombie:setCanWalk(false)
+                    zombie:toggleCrawling()
                 end
             end
             return
@@ -528,13 +568,23 @@ function checkZombieAttributesCustomizableZombies(zombie, playerObj)
         elseif zModData.ZombieTypeCZ == "Shambler" and speedTypeVal ~= 3 then 
             --zombie:setSpeedMod(0.55)
             if bCrawlingVal then 
-				if gameVersion >= 41 then 
-					zombie:setCanWalk(true)
-				end
-				zombie:toggleCrawling() 
-			end
-            zombie:changeSpeed(3)
-            if gameVersion >= 41 then zombie:DoZombieStats() end
+                if gameVersion >= 41 then 
+                    zombie:setCanWalk(true)
+                end
+                zombie:toggleCrawling() 
+            end
+            if gameVersion < 41 then
+                zombie:changeSpeed(3)
+            elseif gameVersion >= 41 and gameVersion < 41.60 then 
+                zombie:changeSpeed(3)
+            elseif gameVersion >= 41.60 then 
+                getSandboxOptions():set("ZombieLore.Speed", 3)
+            end
+            if gameVersion >= 41 then
+                zombie:makeInactive(true);
+                zombie:makeInactive(false);
+                zombie:DoZombieStats()
+                end
             return
         --end
         
@@ -542,26 +592,46 @@ function checkZombieAttributesCustomizableZombies(zombie, playerObj)
         elseif zModData.ZombieTypeCZ == "Fast Shambler" and speedTypeVal ~= 2 then 
             --zombie:setSpeedMod(0.85)
             if bCrawlingVal then 
-				if gameVersion >= 41 then 
-					zombie:setCanWalk(true)
-				end
-				zombie:toggleCrawling() 
-			end
-            zombie:changeSpeed(2)
-            if gameVersion >= 41 then zombie:DoZombieStats() end
+                if gameVersion >= 41 then 
+                    zombie:setCanWalk(true)
+                end
+                zombie:toggleCrawling() 
+            end
+            if gameVersion < 41 then
+                zombie:changeSpeed(2)
+            elseif gameVersion >= 41 and gameVersion < 41.60 then 
+                zombie:changeSpeed(2)
+            elseif gameVersion >= 41.60 then 
+                getSandboxOptions():set("ZombieLore.Speed", 2)
+            end
+            if gameVersion >= 41 then
+                zombie:makeInactive(true);
+                zombie:makeInactive(false);
+                zombie:DoZombieStats()
+            end
             return
         --end
         
         -- Runner
         elseif zModData.ZombieTypeCZ == "Runner" and speedTypeVal ~= 1 then 
             if bCrawlingVal then 
-				if gameVersion >= 41 then 
-					zombie:setCanWalk(true)
-				end
-				zombie:toggleCrawling() 
-			end
-            zombie:changeSpeed(1)
-            if gameVersion >= 41 then zombie:DoZombieStats() end
+                if gameVersion >= 41 then 
+                    zombie:setCanWalk(true)
+                end
+                zombie:toggleCrawling() 
+            end
+            if gameVersion < 41 then
+                zombie:changeSpeed(1)
+            elseif gameVersion >= 41 and gameVersion < 41.60 then 
+                zombie:changeSpeed(1)
+            elseif gameVersion >= 41.60 then 
+                getSandboxOptions():set("ZombieLore.Speed", 1)
+            end
+            if gameVersion >= 41 then
+                zombie:makeInactive(true);
+                zombie:makeInactive(false);
+                zombie:DoZombieStats()
+            end
             return
         end
     --end
@@ -570,6 +640,7 @@ function checkZombieAttributesCustomizableZombies(zombie, playerObj)
 end
 
 -- Build 41 only
+-- Modifies fakedead
 local function fakeDeadFunctions(zombie)
     
     local zModData = zombie:getModData();
@@ -596,6 +667,9 @@ local function fakeDeadFunctions(zombie)
         if zModData.ZombieTypeCZ ~= "Crawler" and bCrawlingVal then
             zombie:toggleCrawling()
         end
+        
+        zombie:makeInactive(true);
+        zombie:makeInactive(false);
         zombie:DoZombieStats()
     end
     
@@ -695,8 +769,8 @@ Events.OnTick.Add(OnTick)
 
 function SetCustomizableZombies(player)
     
-	--print("SetCustomizableZombies ===========================================")
-	
+    --print("SetCustomizableZombies ===========================================")
+    
     local tlist = player:getCell():getZombieList();
     
     if not zlist then
@@ -714,9 +788,9 @@ function SetCustomizableZombies(player)
         end--]]
     end
     
-	--if not zlist then		
-	--	return;
-	--end
+    --if not zlist then		
+    --	return;
+    --end
     
     --print(zlist:size())
     
@@ -732,7 +806,7 @@ end
 
 --[[
 local function OnWeaponHitCharacter(attacker, target, weapon, damageSplit)
-	print("Zombie Current Health: " .. target:getHealth())
+    print("Zombie Current Health: " .. target:getHealth())
 end
 
 Events.OnWeaponHitCharacter.Add(OnWeaponHitCharacter);

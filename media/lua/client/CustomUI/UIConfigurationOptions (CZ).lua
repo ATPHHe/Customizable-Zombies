@@ -339,7 +339,10 @@ function MainOptions:create()
     self:addPage(settingsTitle)
     self.addY = 0
     
+    local oldGameOptionsToUI = self.gameOptions.toUI
     function self.gameOptions:toUI()
+        oldGameOptionsToUI(self)
+        
         CZ_Util.io_persistence.load(CZ_Util.ConfigFileLocation, CZ_Util.MOD_ID, CZ_Util.configOpts)
         for _,option in ipairs(self.options) do
             option:toUI()
