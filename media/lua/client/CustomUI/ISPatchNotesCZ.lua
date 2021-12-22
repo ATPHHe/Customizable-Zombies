@@ -2,24 +2,24 @@
 
 require "ISUI/ISPanel"
 
-ISReleasesCZ = ISPanel:derive("ISReleasesCZ");
+ISPatchNotesCZ = ISPanel:derive("ISPatchNotesCZ");
 
 local FONT_HGT_SMALL = getTextManager():getFontHeight(UIFont.Small)
 local FONT_HGT_MEDIUM = getTextManager():getFontHeight(UIFont.Medium)
 local FONT_HGT_LARGE = getTextManager():getFontHeight(UIFont.Large)
 
-function ISReleasesCZ:initialise()
+function ISPatchNotesCZ:initialise()
     ISPanel.initialise(self);
     self:create();
 end
 
 
-function ISReleasesCZ:setVisible(visible)
+function ISPatchNotesCZ:setVisible(visible)
     --    self.parent:setVisible(visible);
     self.javaObject:setVisible(visible);
 end
 
-function ISReleasesCZ:render()
+function ISPatchNotesCZ:render()
     local z = 20;
 
     self:drawText(getText("UI_mainscreen_userpanel"), self.width/2 - (getTextManager():MeasureStringX(UIFont.Medium, getText("UI_mainscreen_userpanel")) / 2), z, 1,1,1,1, UIFont.Medium);
@@ -29,7 +29,7 @@ function ISReleasesCZ:render()
 
 end
 
-function ISReleasesCZ:create()
+function ISPatchNotesCZ:create()
     local btnWid = 150
     local btnHgt = math.max(25, FONT_HGT_SMALL + 3 * 2)
     local padBottom = 10
@@ -51,7 +51,7 @@ function ISReleasesCZ:create()
 
     self:setWidth(10 + width + 20 + width + 10)
 
-    self.cancel = ISButton:new((self:getWidth() / 2) + 5, self:getHeight() - padBottom - btnHgt, btnWid, btnHgt, getText("UI_btn_close"), self, ISReleasesCZ.onOptionMouseDown);
+    self.cancel = ISButton:new((self:getWidth() / 2) + 5, self:getHeight() - padBottom - btnHgt, btnWid, btnHgt, getText("UI_btn_close"), self, ISPatchNotesCZ.onOptionMouseDown);
     self.cancel.internal = "CLOSE";
     self.cancel:initialise();
     self.cancel:instantiate();
@@ -59,22 +59,22 @@ function ISReleasesCZ:create()
     self:addChild(self.cancel);
 end
 
-function ISReleasesCZ:updateButtons()
+function ISPatchNotesCZ:updateButtons()
     
 end
 
-function ISReleasesCZ:onOptionMouseDown(button, x, y)
+function ISPatchNotesCZ:onOptionMouseDown(button, x, y)
     if button.internal == "CLOSE" then
         self:close()
     end
 end
 
-function ISReleasesCZ:close()
+function ISPatchNotesCZ:close()
     self:setVisible(false)
     self:removeFromUIManager()
 end
 
-function ISReleasesCZ:new(x, y, width, height, player)
+function ISPatchNotesCZ:new(x, y, width, height, player)
     local o = {};
     o = ISPanel:new(x, y, width, height);
     setmetatable(o, self);
@@ -86,7 +86,7 @@ function ISReleasesCZ:new(x, y, width, height, player)
     o.buttonBorderColor = {r=0.7, g=0.7, b=0.7, a=0.5};
     o.zOffsetSmallFont = 25;
     o.moveWithMouse = true;
-    ISReleasesCZ.instance = o
+    ISPatchNotesCZ.instance = o
     return o;
 end
 
@@ -110,10 +110,20 @@ local function okModal(_text, _centered, _width, _height, _posX, _posY, _func)
         posY = core:getScreenHeight() * 0.5 - height * 0.5;
     end
     
-    local modal = ISScrolledModalRichTextCZ:new(posX, posY, width, height, txt, false, nil, func);
-    modal.backgroundColor = {r=0, g=0, b=0, a=1};
-    modal:initialise();
-    modal:addToUIManager();
+    local gameVersion = tonumber(CZ_Util.GameVersionNumber);
+    
+    if gameVersion < 41.60 then
+        local modal = ISScrolledModalRichTextCZ:new(posX, posY, width, height, txt, false, nil, func);
+        modal.backgroundColor = {r=0, g=0, b=0, a=1};
+        modal:initialise();
+        modal:addToUIManager();
+    elseif gameVersion >= 41.60 then 
+        local modal = ISModalRichText:new(posX, posY, width, height, txt, false, nil, func);
+        modal.backgroundColor = {r=0, g=0, b=0, a=1};
+        modal:initialise();
+        modal:addToUIManager();
+    end
+    
 end
 
 local function tryShowModal()
@@ -168,7 +178,7 @@ local function tryShowModal()
                 end)
     
     --[[
-    local update = ISReleasesCZ:new(200, 200, 400, 400, getSpecificPlayer(0))
+    local update = ISPatchNotesCZ:new(200, 200, 400, 400, getSpecificPlayer(0))
     update:initialise()
     update:instantiate()
     update:setVisible(true)
