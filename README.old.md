@@ -2,7 +2,7 @@
 Mod for Project Zomboid
 
 # How to modify configuration files for Steam Dedicated Server (Windows) (12/9/2020)
-# BUILD 41 IWBUMS (old)
+# Build 40.43 to Build 41.56
 
 **NOTE: (SKIP to Step 9 if you already have a Dedicated Server with this mod added, created and working.)**
 
