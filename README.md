@@ -26,7 +26,7 @@
 9. Start your game. Click "Options".
 
 10. Click the "CZombie" tab and edit the settings here.
-<br>![Imgur](https://imgur.com/bJuUHfU)
+<br>![Imgur](https://imgur.com/bJuUHfU.png)
 
 11. Apply the settings.
 
