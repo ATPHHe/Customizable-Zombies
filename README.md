@@ -1,7 +1,7 @@
 # Customizable-Zombies
 Mod for Project Zomboid
 
-# How to modify configuration files for Steam Dedicated Server (Windows) (12/9/20)
+# How to modify configuration files for Steam Dedicated Server (Windows) (12/9/2020)
 
 **NOTE: (SKIP to Step 9 if you already have a Dedicated Server with this mod added, created and working.)**
 
