@@ -1,5 +1,5 @@
 # How to modify configuration files for Steam Dedicated Server (Windows) (12/23/2021)
-# BUILD 41.60+
+# Build 41.60+
 
 **NOTE: (SKIP to Step 9 if you already have a Dedicated Server with this mod added, created and working.)**
 
