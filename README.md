@@ -23,11 +23,13 @@
 
 8. Click "Save". Start up your dedicated server to generate the configuration files, then shutdown the dedicated server.
 
-9. Start your Project Zomboid game for Build 41.60+. Click "Options".
+9. Start your Project Zomboid game for Build 41.60+.
 
-10. Click the "CZombie" tab and edit the settings here.
+10. In the title screen, click "Options".
+
+11. Click the "CZombie" tab and edit the settings here.
 <br>![Imgur](https://imgur.com/bJuUHfU.png)
 
-11. Apply the settings.
+12. Apply the settings.
 
-12. Start up your server and join.
+13. Restart up your Dedicated Server and join.
