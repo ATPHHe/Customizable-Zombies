@@ -35,6 +35,7 @@ local minHealthShambler, maxHealthShambler = 1, 1
 local minHealthFastShambler, maxHealthFastShambler = 1, 1
 local minHealthSprinter, maxHealthSprinter = 1, 1
 
+--
 function InitCustomizableZombies(tConfigOpts)
     if tConfigOpts == nil then
         configOpts = CZ_Util.io_persistence.load(CZ_Util.ConfigFileLocation, CZ_Util.MOD_ID);
@@ -821,7 +822,7 @@ local OnClientCommand = function(module, command, player, args)
         SetCustomizableZombies(player);
     elseif command == "InitCustomizableZombies" then
         local tConfigOpts = loadstring(args.strConfigOpts)
-        InitCustomizableZombies(tConfigOpts);
+        InitCustomizableZombies(nil);
     end
 end
 Events.OnClientCommand.Add(OnClientCommand);
