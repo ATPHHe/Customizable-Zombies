@@ -880,7 +880,7 @@ function checkIfPercentIsValidCZ(commitToSave)
     
     if commitToSave then 
         CZ_Util.io_persistence.store(CZ_Util.ConfigFileLocation, CZ_Util.MOD_ID, CZ_Util.configOpts)
-        CustomizableZombiesUI.init()
+        --CustomizableZombiesUI.init()
     end
 end
 
