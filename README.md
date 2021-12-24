@@ -37,14 +37,15 @@
 
 # Configuration for Dedicated Server on External PC.
 1. To edit the configuration files, navigate to the "SteamLibrary" where you installed your Dedicated Server.. 
-<br>My server installed in "D:\Games\SteamLibrary\". Your location may be different depending on how you installed your Project Zomboid Dedicated Server.
+<br>My server installed in "D:\Games\SteamLibrary\steamapps". Your location may be different depending on how you installed your Project Zomboid Dedicated Server.
+<br>![Imgur](https://imgur.com/D5Wjvv7.png)
 
-2. Navigate to "..\SteamLibrary\steamapps\workshop\content\108600\1992785456\mods\Customizable Zombies"
-<br>Example: "D:\Games\SteamLibrary\steamapps\workshop\content\108600\1992785456\mods\Customizable Zombies"
+2. Navigate to "..\steamapps\workshop\content\108600\1992785456\mods\Customizable Zombies"
+<br>Example location: "D:\Games\SteamLibrary\steamapps\workshop\content\108600\1992785456\mods\Customizable Zombies"
 <br>![Imgur](https://imgur.com/6X2qNJ7.png)
 
 3. Open "MOD Configuration_Options (Customizable Zombies).lua" in any text editor. **(If you do not see the file, start up your Dedicated Server to generate the file, then shut down the server once the file is generated.)**
-<br>![Imgur](https://imgur.com/Jy7MSiJ.png)
+<br>![Imgur](https://imgur.com/IkHNbYX.png)
 
 4. Here are the settings below.
   * I am using Integers to store the settings.
