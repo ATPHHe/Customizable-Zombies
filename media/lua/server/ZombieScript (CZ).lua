@@ -26,6 +26,7 @@ local number3 = 0
 
 local fakeDeadChance = 0
 local crawlerChance = 0
+local zombieLoreSpeed = 2;
 
 local allowCustomize = true
 allowRunCZ = false
@@ -726,6 +727,24 @@ local function sandboxChecker()
     --end
     
 end
+
+local function sandboxChecker2()
+    --print(getSandboxOptions():getOptionByName("ZombieLore.Speed"):getValue())
+    if getSandboxOptions():getOptionByName("ZombieLore.Speed"):getValue() == 1
+            or getSandboxOptions():getOptionByName("ZombieLore.Speed"):getValue() == 0 then
+        getSandboxOptions():set("ZombieLore.Speed", 2)
+    end
+    --print(getSandboxOptions():getOptionByName("ZombieLore.Speed"):getValue())
+end
+
+local function LoadSandboxDefaults()
+    zombieLoreSpeed = getSandboxOptions():getOptionByName("ZombieLore.Speed"):getValue();
+end
+
+local function SaveSandboxDefaults()
+    getSandboxOptions():set("ZombieLore.Speed", zombieLoreSpeed);
+end
+
 --
 local zlist = ArrayList.new()
 
@@ -835,6 +854,13 @@ end--]]
 Events.OnClientCommand.Add(OnClientCommand);
 
 --Events.EveryTenMinutes.Add(printerCZ)
+if gameVersion >= 41.60 then 
+    Events.EveryOneMinute.Add(sandboxChecker2)
+    Events.OnServerStarted.Add(LoadSandboxDefaults)
+    Events.OnServerStartSaving.Add(SaveSandboxDefaults)
+    Events.OnLoad.Add(LoadSandboxDefaults)
+    Events.OnSave.Add(SaveSandboxDefaults)
+end
 Events.EveryTenMinutes.Add(sandboxChecker)
 
 --Events.OnGameStart.Add(setSandboxOptionsCustomizableZombies)
