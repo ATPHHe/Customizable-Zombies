@@ -28,6 +28,8 @@ local fakeDeadChance = 0
 local crawlerChance = 0
 
 local allowCustomize = true
+allowRunCZ = false
+local hasServerConfigs = false
 
 local minHealthFakeDead, maxHealthFakeDead = 1, 1
 local minHealthCrawler, maxHealthCrawler = 1, 1
@@ -37,6 +39,7 @@ local minHealthSprinter, maxHealthSprinter = 1, 1
 
 --
 function InitCustomizableZombies(tConfigOpts)
+    
     if tConfigOpts == nil then
         configOpts = CZ_Util.io_persistence.load(CZ_Util.ConfigFileLocation, CZ_Util.MOD_ID);
     else
@@ -122,16 +125,29 @@ function InitCustomizableZombies(tConfigOpts)
         minHealthSprinter = minHealth * configOpts["Runner"]["HPMultiplier"] / 10 / 100
         maxHealthSprinter = maxHealth * configOpts["Runner"]["HPMultiplier"] / 10 / 100
     end
+    
+    -- Server/Client related stuff.
+    if isServer() then
+        print("CZ: IS_SERVER")
+        allowRun = true
+    elseif isClient() and not gotServerConfigs then
+        print("CZ: IS_CLIENT")
+        --sendServerCommand(player, CZ_Util.MOD_ID, "GetServerConfigs", {})
+        --hasServerConfigs = true;
+    end
+    
 end
 
 -- Sets a zombie's attributes based on percentages.
 function setZombieAttributesCustomizableZombies(zombie)
     
+    --print(zombie)
+    
     --zombie:setAttackDelayMax(0.01)
     local zModData = zombie:getModData();
     --local dieCount = zombie:getDieCount()
     
-    if not allowCustomize then
+    if not allowCustomize or not allowRun then
         return
     end
     
@@ -345,6 +361,8 @@ end
 -- Checks a zombie and update them if they are not the correct type.
 function checkZombieAttributesCustomizableZombies(zombie, playerObj)
     --print(tostring(zombie:getObjectName()) .. " | " .. tostring(zombie:getName()) )
+    
+    --print(zombie)
     
     -----------------------------------------------
     if not allowCustomize then
@@ -708,40 +726,6 @@ local function sandboxChecker()
     --end
     
 end
-
---[[function monthsToHours(months)
-    local hours = tonumber(months) * 730.485
-    return hours
-end]]
-
---*************************
--- Events
-
-Events.OnZombieUpdate.Add(setZombieAttributesCustomizableZombies)
---Events.OnZombieUpdate.Add(checkZombieAttributesCustomizableZombies)
---if gameVersion >= 41 then Events.OnZombieUpdate.Add(fakeDeadFunctions) end
-
-Events.EveryTenMinutes.Add(sandboxChecker)
-
---Events.OnGameStart.Add(setSandboxOptionsCustomizableZombies)
-Events.OnLoad.Add(InitCustomizableZombies)
-Events.OnServerStarted.Add(InitCustomizableZombies)
-
-
--- A new game starts.
---[[Events.OnNewGame.Add(function()
-    
-end)
-
-Events.OnSave.Add(function()
-    
-end)
-
-Events.OnLoad.Add(function()
-    
-end)
---]]
-
 --
 local zlist = ArrayList.new()
 
@@ -814,6 +798,7 @@ Events.OnWeaponHitCharacter.Add(OnWeaponHitCharacter);
 --]]
 
 local OnClientCommand = function(module, command, player, args)
+    print("CZServer - OnClientCommand " .. command)
     if not isServer() or module ~= CZ_Util.MOD_ID then
         return
     end;
@@ -823,9 +808,59 @@ local OnClientCommand = function(module, command, player, args)
     elseif command == "InitCustomizableZombies" then
         local tConfigOpts = loadstring(args.strConfigOpts)
         InitCustomizableZombies(nil);
+    elseif command == "GetServerConfigs" then
+        --local strConfigOpts = CZ_Util.table_to_string(configOpts)
+        sendServerCommand(player, CZ_Util.MOD_ID, "SendServerConfigs", { configOpts=configOpts })
+        
+        print("CZServer - GetServerConfigs: Sent server configs to client --> " .. player:getUsername());
+        --print(strConfigOpts);
     end
 end
+
+--[[function monthsToHours(months)
+    local hours = tonumber(months) * 730.485
+    return hours
+end--]]
+
+
+--[[local function printerCZ()
+    print(configOpts["Crawler"]["ChanceToSpawn"])
+    print(configOpts["Shambler"]["ChanceToSpawn"])
+    print(configOpts["FastShambler"]["ChanceToSpawn"])
+    print(configOpts["Runner"]["ChanceToSpawn"])
+end--]]
+
+--*************************
+-- Events
 Events.OnClientCommand.Add(OnClientCommand);
+
+--Events.EveryTenMinutes.Add(printerCZ)
+Events.EveryTenMinutes.Add(sandboxChecker)
+
+--Events.OnGameStart.Add(setSandboxOptionsCustomizableZombies)
+Events.OnLoad.Add(InitCustomizableZombies)
+Events.OnServerStarted.Add(InitCustomizableZombies)
+
+Events.OnZombieUpdate.Add(setZombieAttributesCustomizableZombies)
+--Events.OnZombieUpdate.Add(checkZombieAttributesCustomizableZombies)
+--if gameVersion >= 41 then Events.OnZombieUpdate.Add(fakeDeadFunctions) end
+
+-- A new game starts.
+--[[Events.OnNewGame.Add(function()
+    
+end)
+
+Events.OnSave.Add(function()
+    
+end)
+
+Events.OnLoad.Add(function()
+    
+end)
+--]]
+
+
+
 --]]
 
 
