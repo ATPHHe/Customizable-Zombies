@@ -1,3 +1,6 @@
+Customizable Zombies 2.4.3.1
+- [Build 41.65 MP] Hotfix for random rare bug could cause sprinters to spawn.
+
 Customizable Zombies 2.4.3
 - [Build 41.65 MP] Fixed an issue introduced by Build 41.60+ where Zombies are now being updated by the Client instead of the Server.
 - [Build 41.65 MP] Credits to Lemos for providing a solution that sends a LUA table from the Server to the Client. I have referenced their code and use bits of it.
