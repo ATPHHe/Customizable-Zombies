@@ -1,3 +1,6 @@
+Customizable Zombies 2.4.3.3
+- Optimized code.
+
 Customizable Zombies 2.4.3.2
 - Fixed an issue in 41.65 MP for Local and Dedicated Servers, which caused zombies to not update properly when a player wanders very far away from the area where they loaded into.
 

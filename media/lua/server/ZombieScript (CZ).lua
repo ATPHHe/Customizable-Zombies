@@ -753,7 +753,7 @@ local ticks1 = 0
 local function OnTick()
     ticks1 = ticks1 + 1
     
-    if ticks1 >= 2 then
+    if ticks1 >= 3 then
         ticks1 = 0
         if zlist and zlist:size() > 0 then
             local t = zlist:get(0)
@@ -782,7 +782,7 @@ function SetCustomizableZombies(player)
         zlist = ArrayList.new()
     end
     
-    if zlist:size() > 2000000 then return end
+    if zlist:size() > 600000 then return end
     
     for i=0, tlist:size()-1 do
         local z = tlist:get(i)
