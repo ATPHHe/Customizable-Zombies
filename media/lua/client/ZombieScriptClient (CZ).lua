@@ -16,6 +16,11 @@ local count2 = 0;
 
 local sentServerConfig = false;
 
+local function Init()
+    count = 0;
+    count2 = 0;
+end
+
 local function UpdateClient()
     local player = getPlayer();
     --interval = player:getCell():getZombieList():size() * 4;
@@ -27,12 +32,13 @@ local function UpdateClient()
         
         return;
     end
-    sendClientCommand(player, CZ_Util.MOD_ID, "SetCustomizableZombies", {})
-end
-
-local function Init()
-    count = 0;
-    count2 = 0;
+    
+    if CZ_Util.GameVersionNumber >= 41.60 then
+        SetCustomizableZombies(player);
+        sendClientCommand(player, CZ_Util.MOD_ID, "SetCustomizableZombies", {})
+    else
+        sendClientCommand(player, CZ_Util.MOD_ID, "SetCustomizableZombies", {})
+    end
 end
 
 local function PlayerUpdateHandle(player)
@@ -58,8 +64,8 @@ local function PlayerUpdateGetServerConfigs(player)
 end
 
 local OnServerCommand = function(module, command, args)
-    print("CZClient - OnServerCommand " .. tostring(command) .. " " .. tostring(args))
-    print(player)
+    --print("CZClient - OnServerCommand " .. tostring(command) .. " " .. tostring(args))
+    --print(player)
     if not isClient() or module ~= CZ_Util.MOD_ID then
         return
     end;

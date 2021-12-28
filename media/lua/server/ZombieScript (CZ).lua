@@ -47,10 +47,11 @@ function InitCustomizableZombies(tConfigOpts)
         configOpts = tConfigOpts
     end
     
-    print(configOpts["Crawler"]["ChanceToSpawn"])
-    print(configOpts["Shambler"]["ChanceToSpawn"])
-    print(configOpts["FastShambler"]["ChanceToSpawn"])
-    print(configOpts["Runner"]["ChanceToSpawn"])
+    print("CZ - InitCustomizableZombies: isServer = " .. tostring(isServer()))
+    print("Crawler: " .. configOpts["Crawler"]["ChanceToSpawn"]);
+    print("Shambler: " .. configOpts["Shambler"]["ChanceToSpawn"]);
+    print("FastShambler: " .. configOpts["FastShambler"]["ChanceToSpawn"]);
+    print("Sprinter: " .. configOpts["Runner"]["ChanceToSpawn"]);
     
     gameVersion = tonumber(CZ_Util.GameVersionNumber);
     
@@ -142,8 +143,6 @@ end
 -- Sets a zombie's attributes based on percentages.
 function setZombieAttributesCustomizableZombies(zombie)
     
-    --print(zombie)
-    
     --zombie:setAttackDelayMax(0.01)
     local zModData = zombie:getModData();
     --local dieCount = zombie:getDieCount()
@@ -153,6 +152,8 @@ function setZombieAttributesCustomizableZombies(zombie)
     end
     
     if zModData.finishedCustomizableZombies ~= "done" then
+        
+        --print(zombie)
         
         local speedType, bCrawling
         for i=0, getNumClassFields(zombie)-1 do
@@ -781,7 +782,7 @@ function SetCustomizableZombies(player)
         zlist = ArrayList.new()
     end
     
-    if zlist:size() > 200000 then return end
+    if zlist:size() > 2000000 then return end
     
     for i=0, tlist:size()-1 do
         local z = tlist:get(i)
@@ -817,17 +818,17 @@ Events.OnWeaponHitCharacter.Add(OnWeaponHitCharacter);
 --]]
 
 local OnClientCommand = function(module, command, player, args)
-    print("CZServer - OnClientCommand " .. command)
-    if not isServer() or module ~= CZ_Util.MOD_ID then
+    --print("CZServer - OnClientCommand " .. command)
+    if module ~= CZ_Util.MOD_ID then
         return
     end;
     
     if command == "SetCustomizableZombies" then
         SetCustomizableZombies(player);
-    elseif command == "InitCustomizableZombies" then
+    elseif isServer() and command == "InitCustomizableZombies" then
         local tConfigOpts = loadstring(args.strConfigOpts)
         InitCustomizableZombies(nil);
-    elseif command == "GetServerConfigs" then
+    elseif isServer() and command == "GetServerConfigs" then
         --local strConfigOpts = CZ_Util.table_to_string(configOpts)
         sendServerCommand(player, CZ_Util.MOD_ID, "SendServerConfigs", { configOpts=configOpts })
         
