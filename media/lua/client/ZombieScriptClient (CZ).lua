@@ -26,19 +26,19 @@ local function UpdateClient()
     --interval = player:getCell():getZombieList():size() * 4;
     
     if CZ_Util.GameVersionNumber >= 41.60 then
-        if SetCustomizableZombies then 
-            SetCustomizableZombies(player);
+        if setCustomizableZombies then 
+            setCustomizableZombies(player);
         end
-        sendClientCommand(player, CZ_Util.MOD_ID, "SetCustomizableZombies", {})
+        sendClientCommand(player, CZ_Util.MOD_ID, "setCustomizableZombies", {})
     else
         if not isClient() then --singleplayer
-            if SetCustomizableZombies then 
-                SetCustomizableZombies(player);
+            if setCustomizableZombies then 
+                setCustomizableZombies(player);
             end
             
             return;
         end
-        sendClientCommand(player, CZ_Util.MOD_ID, "SetCustomizableZombies", {})
+        sendClientCommand(player, CZ_Util.MOD_ID, "setCustomizableZombies", {})
     end
 end
 

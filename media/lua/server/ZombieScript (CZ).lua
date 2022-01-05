@@ -178,8 +178,23 @@ function setZombieAttributesCustomizableZombies(zombie)
         if number3 < 0 then return end
         
         -- RNG variables
-        local rand1 = ZombRand(number3) + 1
-        local rand2 = ZombRand(number3) + 1
+        local rng, rand1, rand2, onlineID
+        
+        if gameVersion >= 41.60 then 
+            onlineID = zombie:getOnlineID();
+            if onlineID == -1 then
+                rand1 = ZombRand(number3) + 1
+                rand2 = rand1
+            else
+                rng = CZ_Util.twister(zombie:getOnlineID());
+                rand1 = rng:random(1, number3)
+                rand2 = rand1
+            end
+            --print("CZ_RAND1: ".. rand1 .. ", ID: " .. zombie:getOnlineID())
+        else
+            rand1 = ZombRand(number3) + 1
+            rand2 = rand1   --ZombRand(number3) + 1
+        end
         
         -- Fake Dead
         if 0 < rand1 and rand1 <= fakeDeadChance then 
@@ -188,9 +203,7 @@ function setZombieAttributesCustomizableZombies(zombie)
         
         -- Crawler
         if 0 < rand2 and rand2 <= crawlerChance then 
-            if gameVersion >= 41.53 then 
-                zModData.ZombieTypeCZ = "Crawler"
-            end
+            zModData.ZombieTypeCZ = "Crawler"
         end
         
         -- Shambler
@@ -284,6 +297,7 @@ function setZombieAttributesCustomizableZombies(zombie)
                     getSandboxOptions():set("ZombieLore.Speed", 2)
                     --zombie:setCanCrawlUnderVehicle(true)
                     zombie:setCanWalk(false)
+                    zombie:setFallOnFront(true)
                     zombie:toggleCrawling()
                 end
             end
@@ -772,9 +786,9 @@ local function OnTick()
 end
 Events.OnTick.Add(OnTick)
 
-function SetCustomizableZombies(player)
+function setCustomizableZombies(player)
     
-    --print("SetCustomizableZombies ===========================================")
+    --print("setCustomizableZombies ===========================================")
     
     local tlist = player:getCell():getZombieList();
     
@@ -823,8 +837,8 @@ local OnClientCommand = function(module, command, player, args)
         return
     end;
     
-    if command == "SetCustomizableZombies" then
-        SetCustomizableZombies(player);
+    if command == "setCustomizableZombies" then
+        setCustomizableZombies(player);
     elseif isServer() and command == "InitCustomizableZombies" then
         local tConfigOpts = loadstring(args.strConfigOpts)
         InitCustomizableZombies(nil);
@@ -837,26 +851,33 @@ local OnClientCommand = function(module, command, player, args)
     end
 end
 
---[[function monthsToHours(months)
+--[[
+function monthsToHours(months)
     local hours = tonumber(months) * 730.485
     return hours
 end--]]
 
 
---[[local function printerCZ()
-    print(configOpts["Crawler"]["ChanceToSpawn"])
-    print(configOpts["Shambler"]["ChanceToSpawn"])
-    print(configOpts["FastShambler"]["ChanceToSpawn"])
-    print(configOpts["Runner"]["ChanceToSpawn"])
-end--]]
+--[[
+local function printerTester()
+    local rng = CZ_Util.twister(ZombRand(1000000));
+    local rand1 = rng:random(1, 1000)
+    print("CZTEST_RANDOM:"..rand1)
+    --print(configOpts["Crawler"]["ChanceToSpawn"])
+    --print(configOpts["Shambler"]["ChanceToSpawn"])
+    --print(configOpts["FastShambler"]["ChanceToSpawn"])
+    --print(configOpts["Runner"]["ChanceToSpawn"])
+    
+end
+Events.EveryOneMinute.Add(printerTester)
+--]]
 
 --*************************
 -- Events
 Events.OnClientCommand.Add(OnClientCommand);
 
---Events.EveryTenMinutes.Add(printerCZ)
 if gameVersion >= 41.60 then 
-    Events.EveryOneMinute.Add(sandboxChecker2)
+    Events.EveryTenMinutes.Add(sandboxChecker2)
     Events.OnServerStarted.Add(LoadSandboxDefaults)
     Events.OnServerStartSaving.Add(SaveSandboxDefaults)
     Events.OnLoad.Add(LoadSandboxDefaults)
