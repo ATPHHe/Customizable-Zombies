@@ -1,3 +1,7 @@
+Customizable Zombies 2.4.4.1
+- Optimized code.
+- CN [Mandarin (Simplified)] translation improved by Surgeol
+
 Customizable Zombies 2.4.4
 - [Build 41.65 MP] Fixed an issue for Dedicated/Local servers when 2 or more players joined a server. Clients should now agree on each zombie type being the same and not different. Thanks again to Lemos for helping with this issue.
 

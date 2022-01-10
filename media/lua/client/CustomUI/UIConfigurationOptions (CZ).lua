@@ -138,67 +138,67 @@ local GameOption = ISBaseObject:derive("GameOption")
 
 -- GameOption
 function GameOption:new(name, control, arg1, arg2)
-	local o = {}
-	setmetatable(o, self)
-	self.__index = self
-	o.name = name
-	o.control = control
-	o.arg1 = arg1
-	o.arg2 = arg2
-	if control.isTextEntryBox then
+    local o = {}
+    setmetatable(o, self)
+    self.__index = self
+    o.name = name
+    o.control = control
+    o.arg1 = arg1
+    o.arg2 = arg2
+    if control.isTextEntryBox then
         control.onTextChange = function()
             o.gameOptions:onChange(self)
         end
-	end
-	if control.isCombobox then
-		control.onChange = self.onChangeComboBox
-		control.target = o
-	end
-	if control.isTickBox then
-		control.changeOptionMethod = self.onChangeTickBox
-		control.changeOptionTarget = o
-	end
-	if control.isSlider then
-		control.targetFunc = self.onChangeVolumeControl
-		control.target = o
-	end
-	return o
+    end
+    if control.isCombobox then
+        control.onChange = self.onChangeComboBox
+        control.target = o
+    end
+    if control.isTickBox then
+        control.changeOptionMethod = self.onChangeTickBox
+        control.changeOptionTarget = o
+    end
+    if control.isSlider then
+        control.targetFunc = self.onChangeVolumeControl
+        control.target = o
+    end
+    return o
 end
 
 function GameOption:toUI()
-	print('ERROR: option "'..self.name..'" missing toUI()')
+    print('ERROR: option "'..self.name..'" missing toUI()')
 end
 
 function GameOption:apply()
-	print('ERROR: option "'..self.name..'" missing apply()')
+    print('ERROR: option "'..self.name..'" missing apply()')
 end
 
 --[[function GameOption:onChangeTextEntryBox(box)
-	self.gameOptions:onChange(self)
-	if self.onChange then
-		self:onChange(box)
-	end
+    self.gameOptions:onChange(self)
+    if self.onChange then
+        self:onChange(box)
+    end
 end--]]
 
 function GameOption:onChangeComboBox(box)
-	self.gameOptions:onChange(self)
-	if self.onChange then
-		self:onChange(box)
-	end
+    self.gameOptions:onChange(self)
+    if self.onChange then
+        self:onChange(box)
+    end
 end
 
 function GameOption:onChangeTickBox(index, selected)
-	self.gameOptions:onChange(self)
-	if self.onChange then
-		self:onChange(index, selected)
-	end
+    self.gameOptions:onChange(self)
+    if self.onChange then
+        self:onChange(index, selected)
+    end
 end
 
 function GameOption:onChangeVolumeControl(control, volume)
-	self.gameOptions:onChange(self)
-	if self.onChange then
-		self:onChange(control, volume)
-	end
+    self.gameOptions:onChange(self)
+    if self.onChange then
+        self:onChange(control, volume)
+    end
 end
 
 -- MainOptions
@@ -207,21 +207,21 @@ local FONT_HGT_MEDIUM = getTextManager():getFontHeight(UIFont.Medium)
 
 function MainOptions:addTextEntryBox(x, y, w, h, name, text, minValue, maxValue)
 
-	h = FONT_HGT_SMALL + 3 * 2
+    h = FONT_HGT_SMALL + 3 * 2
 
-	local label = ISLabel:new(x, y + self.addY, h, name, 1, 1, 1, 1, UIFont.Small);
-	label:initialise();
-	self.mainPanel:addChild(label);
-	local panel2 = ISTextEntryBoxCZ:new(text, x+20, y + self.addY, w, h, minValue, maxValue)
-	panel2:initialise();
-	
+    local label = ISLabel:new(x, y + self.addY, h, name, 1, 1, 1, 1, UIFont.Small);
+    label:initialise();
+    self.mainPanel:addChild(label);
+    local panel2 = ISTextEntryBoxCZ:new(text, x+20, y + self.addY, w, h, minValue, maxValue)
+    panel2:initialise();
+    
     panel2:instantiate()
     panel2:setOnlyNumbers(true)  
-	
-	self.mainPanel:addChild(panel2);
-	self.mainPanel:insertNewLineOfButtons(panel2)
-	self.addY = self.addY + h + 6;
-	return panel2;
+    
+    self.mainPanel:addChild(panel2);
+    self.mainPanel:insertNewLineOfButtons(panel2)
+    self.addY = self.addY + h + 6;
+    return panel2;
 end
 
 local oldMainOptionsCreateFunction = MainOptions.create
@@ -360,10 +360,10 @@ function MainOptions:create()
     ----- Message Box -----
     local message = getText("ContextMenu_CustomizableZombies_ReadmeMessage")
     
-	lblCZ = ISLabel:new(self:getWidth() / 5, 2 + self.y / 2, y, message, 1, 1, 1, 1, UIFont.Small, true);
+    lblCZ = ISLabel:new(self:getWidth() / 5, 2 + self.y / 2, y, message, 1, 1, 1, 1, UIFont.Small, true);
     
     lblCZ:initialise();
-	self.mainPanel:addChild(lblCZ);
+    self.mainPanel:addChild(lblCZ);
     
     y = y + spacing * 9
     
@@ -440,12 +440,12 @@ function MainOptions:create()
     self.gameOptions:add(gameOption)
     
     -- HPMultiplier --
-	y = y
+    y = y
     local title = getText("ContextMenu_CustomizableZombies_HPMultiplier")
     local tooltip = "MIN: 0.001, MAX: 100   ".."\r\n"..getText("ContextMenu_CustomizableZombies_HPMultiplier_Tooltip")
     local gameOptionSubKey = 'HPMultiplier'
     --local options = getOptions(gameOptionSubKey)
-	
+    
     local textEntry = self:addTextEntryBox(splitpoint, y, comboWidth, 20, title, "1", 0.001, 100)
     textEntry:setTooltip(tooltip);
     
@@ -454,31 +454,31 @@ function MainOptions:create()
         local box = self.control
         box:setText( tostring( CZ_Util.configOpts[gameOptionName][gameOptionSubKey] / 1000 ) )
         if not box:getText() or box:getText() == "" or not tonumber(box:getText()) then 
-			box:setText("1") 
-		end
+            box:setText("1") 
+        end
         --print("SELECTED: " .. tostring(box.selected))
     end
     function gameOption.apply(self)
         local box = self.control
-		print("box: " .. box:getText())
-		
-		box:validate()
-		CZ_Util.configOpts[gameOptionName][gameOptionSubKey] = tonumber(box:getText()) * 1000
-		
-		checkIfPercentIsValidCZ(true)
+        print("box: " .. box:getText())
+        
+        box:validate()
+        CZ_Util.configOpts[gameOptionName][gameOptionSubKey] = tonumber(box:getText()) * 1000
+        
+        checkIfPercentIsValidCZ(true)
     end
     function gameOption:onChange(box)
         print("option changed to ".. tostring(box.selected))
-		
-		--box:validate()
+        
+        --box:validate()
         CZ_Util.configOpts[gameOptionName][gameOptionSubKey] = tonumber(box:getText()) * 1000
     end
     self.gameOptions:add(gameOption)
     
     y = y + spacing
-	
+    
     --[[
-	y = y
+    y = y
     local title = getText("ContextMenu_CustomizableZombies_HPMultiplier")
     local tooltip = getText("ContextMenu_CustomizableZombies_HPMultiplier_Tooltip")
     local gameOptionSubKey = 'HPMultiplier'
@@ -513,7 +513,7 @@ function MainOptions:create()
     self.gameOptions:add(gameOption)
     
     y = y + spacing
-	--]]
+    --]]
     
     ----- Shambler -----
     local title = getText("ContextMenu_CustomizableZombies_3_Title")
@@ -557,7 +557,7 @@ function MainOptions:create()
     local tooltip = "MIN: 0.001, MAX: 100   ".."\r\n"..getText("ContextMenu_CustomizableZombies_HPMultiplier_Tooltip")
     local gameOptionSubKey = 'HPMultiplier'
     --local options = getOptions(gameOptionSubKey)
-	
+    
     local textEntry = self:addTextEntryBox(splitpoint, y, comboWidth, 20, title, "1", 0.001, 100)
     textEntry:setTooltip(tooltip);
     
@@ -566,23 +566,23 @@ function MainOptions:create()
         local box = self.control
         box:setText( tostring( CZ_Util.configOpts[gameOptionName][gameOptionSubKey] / 1000 ) )
         if not box:getText() or box:getText() == "" or not tonumber(box:getText()) then 
-			box:setText("1") 
-		end
+            box:setText("1") 
+        end
         --print("SELECTED: " .. tostring(box.selected))
     end
     function gameOption.apply(self)
         local box = self.control
-		print("box: " .. box:getText())
-		
-		box:validate()
-		CZ_Util.configOpts[gameOptionName][gameOptionSubKey] = tonumber(box:getText()) * 1000
-		
-		checkIfPercentIsValidCZ(true)
+        print("box: " .. box:getText())
+        
+        box:validate()
+        CZ_Util.configOpts[gameOptionName][gameOptionSubKey] = tonumber(box:getText()) * 1000
+        
+        checkIfPercentIsValidCZ(true)
     end
     function gameOption:onChange(box)
         print("option changed to ".. tostring(box.selected))
-		
-		--box:validate()
+        
+        --box:validate()
         CZ_Util.configOpts[gameOptionName][gameOptionSubKey] = tonumber(box:getText()) * 1000
     end
     self.gameOptions:add(gameOption)
@@ -631,7 +631,7 @@ function MainOptions:create()
     local tooltip = "MIN: 0.001, MAX: 100   ".."\r\n"..getText("ContextMenu_CustomizableZombies_HPMultiplier_Tooltip")
     local gameOptionSubKey = 'HPMultiplier'
     --local options = getOptions(gameOptionSubKey)
-	
+    
     local textEntry = self:addTextEntryBox(splitpoint, y, comboWidth, 20, title, "1", 0.001, 100)
     textEntry:setTooltip(tooltip);
     
@@ -640,23 +640,23 @@ function MainOptions:create()
         local box = self.control
         box:setText( tostring( CZ_Util.configOpts[gameOptionName][gameOptionSubKey] / 1000 ) )
         if not box:getText() or box:getText() == "" or not tonumber(box:getText()) then 
-			box:setText("1") 
-		end
+            box:setText("1") 
+        end
         --print("SELECTED: " .. tostring(box.selected))
     end
     function gameOption.apply(self)
         local box = self.control
-		print("box: " .. box:getText())
-		
-		box:validate()
-		CZ_Util.configOpts[gameOptionName][gameOptionSubKey] = tonumber(box:getText()) * 1000
-		
-		checkIfPercentIsValidCZ(true)
+        print("box: " .. box:getText())
+        
+        box:validate()
+        CZ_Util.configOpts[gameOptionName][gameOptionSubKey] = tonumber(box:getText()) * 1000
+        
+        checkIfPercentIsValidCZ(true)
     end
     function gameOption:onChange(box)
         print("option changed to ".. tostring(box.selected))
-		
-		--box:validate()
+        
+        --box:validate()
         CZ_Util.configOpts[gameOptionName][gameOptionSubKey] = tonumber(box:getText()) * 1000
     end
     self.gameOptions:add(gameOption)
@@ -705,7 +705,7 @@ function MainOptions:create()
     local tooltip = "MIN: 0.001, MAX: 100   ".."\r\n"..getText("ContextMenu_CustomizableZombies_HPMultiplier_Tooltip")
     local gameOptionSubKey = 'HPMultiplier'
     --local options = getOptions(gameOptionSubKey)
-	
+    
     local textEntry = self:addTextEntryBox(splitpoint, y, comboWidth, 20, title, "1", 0.001, 100)
     textEntry:setTooltip(tooltip);
     
@@ -714,23 +714,23 @@ function MainOptions:create()
         local box = self.control
         box:setText( tostring( CZ_Util.configOpts[gameOptionName][gameOptionSubKey] / 1000 ) )
         if not box:getText() or box:getText() == "" or not tonumber(box:getText()) then 
-			box:setText("1") 
-		end
+            box:setText("1") 
+        end
         --print("SELECTED: " .. tostring(box.selected))
     end
     function gameOption.apply(self)
         local box = self.control
-		print("box: " .. box:getText())
-		
-		box:validate()
-		CZ_Util.configOpts[gameOptionName][gameOptionSubKey] = tonumber(box:getText()) * 1000
-		
-		checkIfPercentIsValidCZ(true)
+        print("box: " .. box:getText())
+        
+        box:validate()
+        CZ_Util.configOpts[gameOptionName][gameOptionSubKey] = tonumber(box:getText()) * 1000
+        
+        checkIfPercentIsValidCZ(true)
     end
     function gameOption:onChange(box)
         print("option changed to ".. tostring(box.selected))
-		
-		--box:validate()
+        
+        --box:validate()
         CZ_Util.configOpts[gameOptionName][gameOptionSubKey] = tonumber(box:getText()) * 1000
     end
     self.gameOptions:add(gameOption)
@@ -892,6 +892,4 @@ function toggleRandCZ(boolToggle)
     end
     return boolToggle
 end
-
-
 

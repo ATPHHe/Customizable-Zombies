@@ -1,48 +1,52 @@
 ContextMenu_CN = {
     
+    ---===================================---
+    --== Translation Improved by Surgeol ==--
+    ---===================================---
+    
     ---------- Chinese/Mandarin (Simplified) - CN ----------
     
     ----- Coding/Programming Strings -----
-    ContextMenu_CustomizableZombies_true = "真正",
-    ContextMenu_CustomizableZombies_false = "假",
+    ContextMenu_CustomizableZombies_true = "true",
+    ContextMenu_CustomizableZombies_false = "false",
     
     ----- Zombie Settings
-    ContextMenu_CustomizableZombies_HPMultiplier = "健康乘数",
-    ContextMenu_CustomizableZombies_HPMultiplier_Tooltip = "（默认值：1.000）将僵尸的生命值乘以该数字。",
+    ContextMenu_CustomizableZombies_HPMultiplier = "血量倍率",
+    ContextMenu_CustomizableZombies_HPMultiplier_Tooltip = "(默认：1.000)僵尸的血量将会乘以该倍数。",
     
     
     ----- FakeDead -----
-    ContextMenu_CustomizableZombies_1_Title = "在假死状态下产生的几率",
-    ContextMenu_CustomizableZombies_1_Tooltip = "僵尸处于假死状态的机会百分比。",
+    ContextMenu_CustomizableZombies_1_Title = "假死僵尸生成率",
+    ContextMenu_CustomizableZombies_1_Tooltip = "生成假死僵尸的几率。",
     
     
     ----- Crawler -----
-    ContextMenu_CustomizableZombies_2_Title = "僵尸爬虫百分比",
-    ContextMenu_CustomizableZombies_2_Tooltip = "僵尸将成为爬虫的机会百分比。",
+    ContextMenu_CustomizableZombies_2_Title = "爬尸生成率",
+    ContextMenu_CustomizableZombies_2_Tooltip = "生成爬尸的几率。",
     
     
     ----- Shambler -----
-    ContextMenu_CustomizableZombies_3_Title = "僵尸步行者的百分比",
-    ContextMenu_CustomizableZombies_3_Tooltip = "僵尸成为沃克的机会百分比。",
+    ContextMenu_CustomizableZombies_3_Title = "走尸生成率",
+    ContextMenu_CustomizableZombies_3_Tooltip = "生成走尸的几率。",
     
     
     ----- FastShambler -----
-    ContextMenu_CustomizableZombies_4_Title = "僵尸快速行者的百分比",
-    ContextMenu_CustomizableZombies_4_Tooltip = "僵尸成为快行者的机会百分比。",
+    ContextMenu_CustomizableZombies_4_Title = "行尸生成率",
+    ContextMenu_CustomizableZombies_4_Tooltip = "生成行尸的几率。",
     
     
     ----- Sprinter -----
-    ContextMenu_CustomizableZombies_5_Title = "僵尸短跑选手百分比",
-    ContextMenu_CustomizableZombies_5_Tooltip = "僵尸成为短跑选手的机会。",
+    ContextMenu_CustomizableZombies_5_Title = "跑尸生成率",
+    ContextMenu_CustomizableZombies_5_Tooltip = "生成跑尸的几率。",
     
     
     ----- Preset -----
     ContextMenu_CustomizableZombies_6_Title = "预设： ",
-    ContextMenu_CustomizableZombies_6_Tooltip = "为了方便起见，我在这里创建了预设。",
+    ContextMenu_CustomizableZombies_6_Tooltip = "为了方便起见，我事先创建了一些预设。",
     
     
     ----- README Message -----
-    ContextMenu_CustomizableZombies_ReadmeMessage = "自述文件: <br>自述文件：<br>单击“应用”以确保百分比平衡您的期望。 <br>“抓取工具”，“助行器”，“快速助行器”和“短跑选手”的百分比必须相加并等于100％。 <br><br>（假死％不受影响）",
+    ContextMenu_CustomizableZombies_ReadmeMessage = "README: <br>点击'应用'来确保你的设定生效。<br>爬尸，走尸，行尸，跑尸这四项的百分比相加必须等于100%。<br><br>(计算时不需要考虑假死僵尸的生成率)",
     
     
 }

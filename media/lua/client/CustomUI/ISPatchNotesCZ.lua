@@ -38,7 +38,7 @@ function ISPatchNotesCZ:create()
     
     local labelText = "Minimal Display Bars 4.1"
     self.titleLabel = ISLabel:new(9,16,FONT_HGT_MEDIUM, labelText ,1,1,1,1,UIFont.Medium,true)
-	self.titleLabel:initialise();
+    self.titleLabel:initialise();
     self:addChild(self.titleLabel);
     
     local width = 0
@@ -102,7 +102,7 @@ local function okModal(_text, _centered, _width, _height, _posX, _posY, _func)
     local height = _height or core:getScreenHeight() * 0.75;
     local centered = _centered;
     local txt = _text;
-	local func = _func or nil;
+    local func = _func or nil;
     
     -- center the modal if necessary
     if centered then
@@ -187,8 +187,4 @@ local function tryShowModal()
 end
 
 --Events.OnGameStart.Add(tryShowModal)
-Events.OnMainMenuEnter.Add(tryShowModal)
-
-
-
-
+--Events.OnMainMenuEnter.Add(tryShowModal)
