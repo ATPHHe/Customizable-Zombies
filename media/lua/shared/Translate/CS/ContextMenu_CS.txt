@@ -3,46 +3,46 @@ ContextMenu_CS = {
     ---------- Czech - CS ----------
     
     ----- Coding/Programming Strings -----
-    ContextMenu_CustomizableZombies_true = "true",
-    ContextMenu_CustomizableZombies_false = "false",
+    ContextMenu_CustomizableZombies_true = "povoleno",
+    ContextMenu_CustomizableZombies_false = "zakázáno",
     
     ----- Zombie Settings
-    ContextMenu_CustomizableZombies_HPMultiplier = "Multiplikátor Zdraví",
-    ContextMenu_CustomizableZombies_HPMultiplier_Tooltip = "(Výchozí: 1.000) Vynásobí toto zdraví zombie zdraví.",
+    ContextMenu_CustomizableZombies_HPMultiplier = "Násobitel zdraví",
+    ContextMenu_CustomizableZombies_HPMultiplier_Tooltip = "(Výchozí: 1.000) Vynásobí zdraví zombie tímto èíslem..",
     
     
     ----- FakeDead -----
-    ContextMenu_CustomizableZombies_1_Title = "% šance na plod ve Falešném Mrtvém stavu",
-    ContextMenu_CustomizableZombies_1_Tooltip = "Procento, že zombie bude ve Falešném Mrtvém stavu.",
+    ContextMenu_CustomizableZombies_1_Title = "% šance na výskyt falešných mrtvol",
+    ContextMenu_CustomizableZombies_1_Tooltip = "Šance v %, že zombie bude ve zdánlivì mrtvém stavu.",
     
     
     ----- Crawler -----
-    ContextMenu_CustomizableZombies_2_Title = "% z Prohledávacu",
-    ContextMenu_CustomizableZombies_2_Tooltip = "% Šance, že zombie bude Prohledávacem.",
+    ContextMenu_CustomizableZombies_2_Title = "% lezoucích",
+    ContextMenu_CustomizableZombies_2_Tooltip = "Šance v %, že se zombie bude plazit po zemi.",
     
     
     ----- Shambler -----
-    ContextMenu_CustomizableZombies_3_Title = "% z Shamblers",
-    ContextMenu_CustomizableZombies_3_Tooltip = "% Šance, že zombie bude Shambler.",
+    ContextMenu_CustomizableZombies_3_Title = "% šourajících",
+    ContextMenu_CustomizableZombies_3_Tooltip = "Šance v %, že se zombie bude pomalu šourat.",
     
     
     ----- FastShambler -----
-    ContextMenu_CustomizableZombies_4_Title = "% z Rychlých Shamblers",
-    ContextMenu_CustomizableZombies_4_Tooltip = "% Šance, že zombie bude Rychlý Shambler.",
+    ContextMenu_CustomizableZombies_4_Title = "% rychle se šourajících",
+    ContextMenu_CustomizableZombies_4_Tooltip = "Šance v %, že zombie bude rychle šourat.",
     
     
     ----- Sprinter -----
-    ContextMenu_CustomizableZombies_5_Title = "% z Sprinters",
-    ContextMenu_CustomizableZombies_5_Tooltip = "% Šance, že zombie bude Sprinter.",
+    ContextMenu_CustomizableZombies_5_Title = "% sprintujících",
+    ContextMenu_CustomizableZombies_5_Tooltip = "Šance v %, že zombie bude sprintovat.",
     
     
     ----- Preset -----
-    ContextMenu_CustomizableZombies_6_Title = "Prednastavení: ",
-    ContextMenu_CustomizableZombies_6_Tooltip = "Pro vetší pohodlí jsem zde vytvoril predvolby.",
+    ContextMenu_CustomizableZombies_6_Title = "Pøedvolby: ",
+    ContextMenu_CustomizableZombies_6_Tooltip = "Pro vìtší pohodlí jsem zde vytvoøil pøedvolby.",
     
     
     ----- README Message -----
-    ContextMenu_CustomizableZombies_ReadmeMessage = "PRECTETE: <br>Kliknete na 'APLIKUJTE', abyste se ujistili, že procentuální zustatek, jak chcete. <br>Procenta Prohledávacu, Shambler, Rychlých Shamber a Sprinter se musí kombinovat a musí se rovnat 100%. <br><br>(Falešném Mrtvém % není ovlivnen)",
+    ContextMenu_CustomizableZombies_ReadmeMessage = "ÈTÌTE: <br>Stisknìte tlaèítko 'POUŽÍT' a ujistìte se, že jsou procenta vyvážená tak, jak chcete. <br>Procenta lezoucích, šourajících, rychle se šourajících a sprintujících se musí dohromady rovnat 100 %. <br><br>(% falešných mrtvol nejsou ovlivnìny)",
     
     
 }
